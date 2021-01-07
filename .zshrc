@@ -1,3 +1,5 @@
+autoload -Uz compinit
+compinit
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -76,7 +78,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git kubectl)
 
 source /Users/tkim/dev/Git/.rc
 source $ZSH/oh-my-zsh.sh 
@@ -127,12 +129,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
 
 # Kubernetes
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-alias kc='kubectl'
+# source <(kubectl completion zsh)
+# complete -F __start_kubectl k
 alias kx='kubectx'
+alias k=kubectl
 alias c='clear'
-alias kcwp='kubectl get pods -A --watch'
-alias kcwd='kubectl get deployments -A --watch'
+alias kwp='kubectl get pods -A --watch'
+alias kwd='kubectl get deployments -A --watch'
 
 alias passwork="export PASSWORD_STORE_DIR=/Users/tkim/dev/Client/BMW/BMWChatOps/infra-base/secrets"
 alias passdo="export PASSWORD_STORE_DIR=/Users/tkim/.password-store/do"
@@ -148,4 +151,3 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-

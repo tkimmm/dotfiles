@@ -39,6 +39,7 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'justinmk/vim-dirvish'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'

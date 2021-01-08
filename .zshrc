@@ -129,16 +129,16 @@ export PATH="$HOME/.cargo/bin:$PATH"
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
 
 # Kubernetes
-# source <(kubectl completion zsh)
-# complete -F __start_kubectl k
 alias kx='kubectx'
 alias k=kubectl
 alias c='clear'
 alias kwp='kubectl get pods -A --watch'
 alias kwd='kubectl get deployments -A --watch'
 
+# Misc bindings
 alias passwork="export PASSWORD_STORE_DIR=/Users/tkim/dev/Client/BMW/BMWChatOps/infra-base/secrets"
 alias passdo="export PASSWORD_STORE_DIR=/Users/tkim/.password-store/do"
+alias b="/Users/tkim/dev/Rust/calc/target/release/calc"
 
 # Auto completions
 if type brew &>/dev/null; then

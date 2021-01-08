@@ -31,6 +31,10 @@ nnoremap <silent> ) :bn<CR>
 nnoremap <silent> <C-q> :bd<CR>
 nnoremap <silent> _ :BufExplorer<CR>
 
+" Insert line below without using insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 let g:vimspector_enable_mappings = 'HUMAN'
 
 " Plugins will be downloaded under the specified directory.
@@ -39,13 +43,23 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'justinmk/vim-dirvish'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"Plug 'ap/vim-buftabline'
 
 " List ends here. Plugins become visible to Vim after ithis call.
 call plug#end()
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='deus'
+
+set noshowmode " removes double status line when using airline
+
 

@@ -30,6 +30,10 @@ nnoremap <silent> ) :bn<CR>
 nnoremap <silent> <C-q> :bd<CR>
 nnoremap <silent> _ :BufExplorer<CR>
 
+" Tab Navigation 
+nnoremap H gT
+nnoremap L gt
+
 " ALE Linting options
 " let g:ale_linters_explicit = 1
 let g:ale_lint_on_text_changed = 'never'

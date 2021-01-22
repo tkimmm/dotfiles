@@ -17,18 +17,22 @@ set ruler                      " Shows the current line number at the bottom-rig
                                " of the screen.
 set wildmenu                   " Great command-line completion, use `<Tab>` to move
                                " around and `<CR>` to validate.
-set number relativenumber
 
 
 packadd! vimspector
 packloadall
 :imap jk <Esc>
 
+" Cursor mode customisations
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 " Buffer navigation and options
 nnoremap <silent> ( :bp<CR>
 nnoremap <silent> ) :bn<CR>	
 nnoremap <silent> <C-q> :bd<CR>
-nnoremap <silent> _ :BufExplorer<CR>
+nnoremap <silent> _ :NERDTreeToggle<CR>
 
 " ALE Linting options
 " let g:ale_linters_explicit = 1
@@ -45,7 +49,7 @@ nmap <silent> <C-a> :ALELint<CR>
 nmap <silent> <C-x> :ALENext<CR>
 nmap <silent> <C-z> :ALEPrevious<CR>
 
-set signcolumn=number
+" set signcolumn=number
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 highlight clear SpellBad
@@ -56,6 +60,11 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+:set fillchars+=vert:\ 
+set number relativenumber
+highlight SignColumn guibg=black ctermbg=black
+highlight EndOfBuffer ctermfg=black ctermbg=black
+hi VertSplit ctermbg=NONE guibg=NONE
 
 " Markdown config
 " let g:mkdp_browser = 'chrome'
@@ -73,6 +82,9 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0
     \ }
 
+let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+let g:mkdp_browser = 'Google Chrome'
+
 " Insert line below without using insert mode
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
@@ -83,7 +95,10 @@ let g:vimspector_enable_mappings = 'HUMAN'
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'justinmk/vim-dirvish'
+" Plug 'justinmk/vim-dirvish'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'"
 Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -94,10 +109,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdtree'
 
 " List ends here. Plugins become visible to Vim after ithis call.
 call plug#end()
 
+" VIM Nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+let NERDTreeMinimalUI=1
+
+" Fzf settings
+" let g:fzf_Apreview_window = ['up:50%', 'ctrl-/']
+
+" Airline 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'

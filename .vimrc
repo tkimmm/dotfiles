@@ -30,9 +30,11 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Buffer navigation and options
 nnoremap <silent> ( :bp<CR>
-nnoremap <silent> ) :bn<CR>	
+nnoremap <silent> ) :bn<CR>
 nnoremap <silent> <C-q> :bd<CR>
 nnoremap <silent> _ :NERDTreeToggle<CR>
+nnoremap <silent> <C-f> :Lines<CR>
+nnoremap <silent> <S-f> :Files<CR>
 
 " ALE Linting options
 " let g:ale_linters_explicit = 1
@@ -64,7 +66,7 @@ highlight SpellLocal term=underline cterm=underline
 set number relativenumber
 highlight SignColumn guibg=black ctermbg=black
 highlight EndOfBuffer ctermfg=black ctermbg=black
-hi VertSplit ctermbg=NONE guibg=NONE
+hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=NONE
 
 " Markdown config
 " let g:mkdp_browser = 'chrome'
@@ -119,9 +121,11 @@ call plug#end()
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 let NERDTreeMinimalUI=1
+let g:NERDTreeShowHidden=1
 
 " Fzf settings
-" let g:fzf_Apreview_window = ['up:50%', 'ctrl-/']
+let g:fzf_preview_window = ['up:70%', 'ctrl-/']
+let g:fzf_layout = { 'down': '~100%' } 
 
 " Airline 
 let g:airline#extensions#tabline#enabled = 1

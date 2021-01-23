@@ -66,7 +66,8 @@ highlight SpellLocal term=underline cterm=underline
 set number relativenumber
 highlight SignColumn guibg=NONE ctermbg=NONE
 highlight EndOfBuffer ctermfg=blue ctermbg=blue
-hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=NONE
+hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=blue
+
 
 " Markdown config
 " let g:mkdp_browser = 'chrome'

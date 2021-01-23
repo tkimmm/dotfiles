@@ -64,8 +64,8 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 :set fillchars+=vert:\ 
 set number relativenumber
-highlight SignColumn guibg=black ctermbg=black
-highlight EndOfBuffer ctermfg=black ctermbg=black
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight EndOfBuffer ctermfg=blue ctermbg=blue
 hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=NONE
 
 " Markdown config
@@ -118,14 +118,15 @@ Plug 'preservim/nerdtree'
 call plug#end()
 
 " VIM Nerdtree
-autocmd StdinReadPre * let s:std_in=1
+autocmd StdinReadPre * let s:std_in=1 " if no file specified then open tree
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 let NERDTreeMinimalUI=1
-let g:NERDTreeShowHidden=1
+" Otherwise can be done using (I)
+" let g:NERDTreeShowHidden=1
 
 " Fzf settings
-let g:fzf_preview_window = ['up:70%', 'ctrl-/']
-let g:fzf_layout = { 'down': '~100%' } 
+let g:fzf_preview_window = ['down:70%', 'ctrl-/']
+let g:fzf_layout = { 'right': '50%' } 
 
 " Airline 
 let g:airline#extensions#tabline#enabled = 1

@@ -118,14 +118,14 @@ Plug 'preservim/nerdtree'
 call plug#end()
 
 " VIM Nerdtree
-autocmd StdinReadPre * let s:std_in=1 " if no file specified then open tree
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1 " if no file specified then open tree
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 let NERDTreeMinimalUI=1
 " Otherwise can be done using (I)
 " let g:NERDTreeShowHidden=1
 
 " Fzf settings
-let g:fzf_preview_window = ['down:70%', 'ctrl-/']
+let g:fzf_preview_window = ['down:50%', 'ctrl-/']
 let g:fzf_layout = { 'right': '50%' } 
 
 " Airline 

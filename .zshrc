@@ -1,5 +1,5 @@
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit
+compinit
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -78,7 +78,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl zsh-autosuggestions)
+plugins=(git kubectl fzf-tab zsh-autosuggestions)
 
 source /Users/tkim/dev/Git/.rc
 source $ZSH/oh-my-zsh.sh 
@@ -141,22 +141,22 @@ alias passdo="export PASSWORD_STORE_DIR=/Users/tkim/.password-store/do"
 alias b="/Users/tkim/dev/Rust/calc/target/release/calc"
 
 # Auto completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
-  autoload -Uz compinit
-  compinit
-fi
+#   autoload -Uz compinit
+#   compinit
+# fi
 
 # fzf search
 if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs'
-  export FZF_DEFAULT_OPTS='-m --height 50% --reverse'
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+  export FZF_DEFAULT_OPTS='-m --height 70% --reverse'
 fi
 
 f() {
   local dir
-  DIR=`find * -maxdepth 5 -type d -print 2> /dev/null | fzf-tmux` \
+  DIR=`find * -maxdepth 3 -type d -print 2> /dev/null | fzf-tmux` \
     && cd "$DIR"
 }
 

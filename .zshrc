@@ -1,5 +1,5 @@
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -148,11 +148,30 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# VIM 
+# fzf search
 if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs'
+  export FZF_DEFAULT_OPTS='-m --height 50% --reverse'
 fi
 
+f() {
+  local dir
+  DIR=`find * -maxdepth 5 -type d -print 2> /dev/null | fzf-tmux` \
+    && cd "$DIR"
+}
+
+fu() {
+  local declare dirs=()
+  get_parent_dirs() {
+    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+    if [[ "${1}" == '/' ]]; then
+      for _dir in "${dirs[@]}"; do echo $_dir; done
+    else
+      get_parent_dirs $(dirname "$1")
+    fi
+  }
+  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
+  cd "$DIR"
+}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

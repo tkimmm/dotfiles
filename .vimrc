@@ -19,7 +19,7 @@ set wildmenu                   " Great command-line completion, use `<Tab>` to m
                                " around and `<CR>` to validate.
 
 
-packadd! vimspector
+" packadd! vimspector
 packloadall
 :imap jk <Esc>
 

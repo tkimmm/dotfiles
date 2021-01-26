@@ -151,7 +151,7 @@ alias b="/Users/tkim/dev/Rust/calc/target/release/calc"
 # fzf search
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-  export FZF_DEFAULT_OPTS='-m --height 70% --reverse'
+  export FZF_DEFAULT_OPTS='-m --height 70% --reverse' 
 fi
 
 f() {

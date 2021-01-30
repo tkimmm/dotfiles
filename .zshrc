@@ -134,6 +134,7 @@ alias k=kubectl
 alias c='clear'
 alias kwp='kubectl get pods -A --watch'
 alias kwd='kubectl get deployments -A --watch'
+alias kwe='kubectl get events -A --watch'
 
 # Misc bindings
 alias passwork="export PASSWORD_STORE_DIR=/Users/tkim/dev/Client/BMW/BMWChatOps/infra-base/secrets"

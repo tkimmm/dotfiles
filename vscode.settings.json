@@ -1,11 +1,12 @@
 {
+    "workbench.colorTheme": "Deepdark Material Theme | Full Black Version",
+    "workbench.startupEditor": "none",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "editor.fontFamily": "'Hack',Menlo, Monaco, 'Courier New', monospace",
     "breadcrumbs.enabled": false,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "workbench.sideBar.location": "left",
-    "window.zoomLevel": 1,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "explorer.confirmDragAndDrop": false,
@@ -15,7 +16,6 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "workbench.startupEditor": "newUntitledFile",
     "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": true,
     "editor.mouseWheelZoom": true,
@@ -36,11 +36,7 @@
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "azureFunctions.showProjectWarning": false,
-    "azureFunctions.showCoreToolsWarning": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "appService.showSavePrompt": false,
-    "dart.openDevTools": "flutter",
     "typescript.tsdk": "",
     "[dart]": {
         "editor.formatOnSave": true,
@@ -55,24 +51,14 @@
         "editor.wordBasedSuggestions": false
     },
     "workbench.editor.showTabs": true,
-    "azure-iot-edge.EdgeHubConnectionString": "HostName=tkim.azure-devices.net;GatewayHostName=localhost;DeviceId=tkimkube;ModuleId=target;SharedAccessKey=7xQWny1owYMbIenB1lpkGZacQGzt1L0GxBF6sPTWQqU=",
-    "azure-iot-edge.EdgeModuleCACertificateFile": "/var/lib/iotedgehubdev/certs/edge-device-ca/cert/edge-device-ca.cert.pem",
-    "workbench.colorTheme": "Celestial",
     "workbench.editorAssociations": [
         {
             "viewType": "jupyter.notebook.ipynb",
             "filenamePattern": "*.ipynb"
         }
     ],
-    "githubPullRequests.remotes": [
-        "origin",
-        "upstream",
-        "github"
-    ],
     "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "githubPullRequests.fileListLayout": "tree",
     "terminal.external.osxExec": "iTerm2.app",
     "terminal.integrated.fontFamily": "'Hack','MesloLGS NF'",
     "workbench.panel.defaultLocation": "left",
@@ -91,5 +77,5 @@
     "workbench.colorCustomizations": {
         "editorLineNumber.foreground": "#b2b2b2"
     },
-    "editor.fontLigatures": null
+    "window.zoomLevel": 1
     }

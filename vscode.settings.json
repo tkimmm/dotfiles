@@ -24,14 +24,6 @@
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "azure.resourceFilter": [
-        "cf36141c-ddd7-45a7-b073-111f66d0b30c/700386c2-61b8-4d4a-8244-e4606d4f14b4",
-        "604c1504-c6a3-4080-81aa-b33091104187/5b7c0498-c93f-462b-a8ef-f50eda7b2b84",
-        "cf36141c-ddd7-45a7-b073-111f66d0b30c/3e4fa1ca-4d85-4cad-9e28-7faa8163a46f",
-        "604c1504-c6a3-4080-81aa-b33091104187/3f823f67-c938-4a0e-9189-a6c7d521b953",
-        "7cea31c1-3a8f-4885-a7da-93819d92e4db/7f75924d-03e5-4016-af42-3f3670e2bb4a",
-        "d017b0ed-eb93-4ed2-824b-9e5349299a6e/bdc76fd1-5b16-40c2-9f79-47280eeb1d13"
-    ],
     "[typescriptreact]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },

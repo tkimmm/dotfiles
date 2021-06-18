@@ -1,1 +1,1 @@
-/Users/tkim/.zshenv
+. "$HOME/.cargo/env"

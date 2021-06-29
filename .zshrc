@@ -39,11 +39,11 @@ eval $(/opt/homebrew/bin/brew shellenv)
 # PATH=$HOME/flutter/bin:$PATH
 
 # PYENV
-# alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-#   eval "$(pyenv virtualenv-init -)"
-# fi
+alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # RUST
 export PATH="$HOME/.cargo/bin:$PATH"

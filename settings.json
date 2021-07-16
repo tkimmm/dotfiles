@@ -9,6 +9,8 @@
     "workbench.sideBar.location": "left",
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
+    "arduino.path": "/Applications",
+    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json",
     "explorer.confirmDragAndDrop": false,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
@@ -54,8 +56,7 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
-    "[yaml]": {
-    },
+    "[yaml]": {},
     "terminal.external.osxExec": "iTerm2.app",
     "terminal.integrated.fontFamily": "'Hack','MesloLGS NF'",
     "workbench.panel.defaultLocation": "right",
@@ -67,28 +68,38 @@
     "vim.surround": true,
     "vim.insertModeKeyBindings": [
         {
-          "before": ["j", "k"],
-          "after": ["<Esc>"]
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         }
     ],
     "vim.normalModeKeyBindings": [
         {
-            "before": ["<S-h>"],
+            "before": [
+                "<S-h>"
+            ],
             "commands": [
                 "workbench.action.previousEditor"
             ]
         },
         {
-            "before": ["<S-l>"],
+            "before": [
+                "<S-l>"
+            ],
             "commands": [
                 "workbench.action.nextEditor"
             ]
         }
-    ], 
+    ],
     "editor.lineNumbers": "relative",
     "workbench.colorCustomizations": {
         "editorLineNumber.foreground": "#b2b2b2"
     },
     "window.zoomLevel": 1,
-    "editor.tabCompletion": "on"
-    }
+    "editor.tabCompletion": "on",
+    "IoTWorkbench.workbench": "/Users/tkim/Documents/IoTWorkbenchProjects"
+}

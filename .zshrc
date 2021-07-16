@@ -65,6 +65,7 @@ alias passwaka="export PASSWORD_STORE_DIR=/Users/tkim/dev/Client/BMW/BMWDevOps/i
 alias passdo="export PASSWORD_STORE_DIR=/Users/tkim/.password-store/do"
 alias b="/Users/tkim/dev/Rust/calc/target/release/calc"
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
+alias me="python3 /Users/tkim/dev/Python/modelemp/app.py"
 
 clear-git-branches() {
 git fetch -p && \

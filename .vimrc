@@ -121,6 +121,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
 
 " List ends here. Plugins become visible to Vim after ithis call.
 call plug#end()

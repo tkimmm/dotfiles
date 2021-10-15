@@ -31,14 +31,13 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
 
 " Buffer navigation and options
-" nnoremap <silent> ( :bp<CR>
-" nnoremap <silent> ) :bn<CR>
 nnoremap <silent> <S-h> :bp<CR>
 nnoremap <silent> <S-l> :bn<CR>
 nnoremap <silent> <C-q> :bd<CR>
 nnoremap <silent> _ :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :Lines<CR>
 nnoremap <silent> <S-f> :Files<CR>
+" inoremap { {<CR>}<Esc>ko
 
 " ALE Linting options
 let g:ale_linters_explicit = 1

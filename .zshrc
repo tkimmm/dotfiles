@@ -66,6 +66,7 @@ alias passdo="export PASSWORD_STORE_DIR=/Users/tkim/.password-store/do"
 alias b="/Users/tkim/dev/Rust/calc/target/release/calc"
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias me="python3 /Users/tkim/dev/Python/modelemp/app.py"
+alias tf="terraform"
 
 clear-git-branches() {
 git fetch -p && \
@@ -137,3 +138,21 @@ fu() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey -v
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+
+# __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+#         . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+
+# <<< conda initialize <<<
+

@@ -3,7 +3,7 @@
     "workbench.startupEditor": "none",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "editor.fontFamily": "'Hack',Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrains Mono',Menlo, Monaco, 'Courier New', monospace",
     "breadcrumbs.enabled": false,
     "editor.minimap.enabled": true,
     "workbench.sideBar.location": "left",
@@ -99,7 +99,7 @@
     "workbench.colorCustomizations": {
         "editorLineNumber.foreground": "#b2b2b2"
     },
-    "window.zoomLevel": 1,
     "editor.tabCompletion": "on",
-    "IoTWorkbench.workbench": "/Users/tkim/Documents/IoTWorkbenchProjects"
+    "IoTWorkbench.workbench": "/Users/tkim/Documents/IoTWorkbenchProjects",
+    "window.zoomLevel": 1
 }

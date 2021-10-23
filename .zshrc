@@ -57,12 +57,8 @@ alias kwp='kubectl get pods -A --watch'
 alias kwd='kubectl get deployments -A --watch'
 alias kwe='kubectl get events -A --watch'
 alias kwj='kubectl get jobs -A --watch'
-alias ks='kubectl exec -i -t -n int cubie-x-middleware-d47f6c496-bwg2w -c cubie-x-middleware "--" sh -c "clear; (bash || ash || sh)"'
 
 # Misc bindings
-alias passco="export PASSWORD_STORE_DIR=/Users/tkim/dev/Client/BMW/BMWChatOps/infra-base/secrets"
-alias passwaka="export PASSWORD_STORE_DIR=/Users/tkim/dev/Client/BMW/BMWDevOps/infra-base/secrets"
-alias passdo="export PASSWORD_STORE_DIR=/Users/tkim/.password-store/do"
 alias b="/Users/tkim/dev/Rust/calc/target/release/calc"
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias me="python3 /Users/tkim/dev/Python/modelemp/app.py"

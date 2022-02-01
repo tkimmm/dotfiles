@@ -48,6 +48,9 @@ fi
 # RUST
 export PATH="$HOME/.cargo/bin:$PATH"
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
+export PATH="/Users/tkim/.espressif/tools/xtensa-esp32-elf-clang/esp-12.0.1-20210914-aarch64-apple-darwin/bin/:$PATH"
+export LIBCLANG_PATH="/Users/tkim/.espressif/tools/xtensa-esp32-elf-clang/esp-12.0.1-20210914-aarch64-apple-darwin/lib/"
+export PIP_USER=no
 
 # Kubernetes
 alias kx='kubectx'

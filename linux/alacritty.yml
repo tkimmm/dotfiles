@@ -1,0 +1,16 @@
+env:
+  TERM: xterm-256color
+
+padding:
+  x: 6
+  y: 6
+
+font:
+  normal:
+    family: "MesloLGS NF"
+
+key_bindings:
+  - { key: H, mods: Control, chars: "\x1b[D",   mode: ~AppCursor  }
+  - { key: L, mods: Control, chars: "\x1bOC",   mode: ~AppCursor  }
+  - { key: J, mods: Control, chars: "\x1b[B",   mode: ~AppCursor  }
+  - { key: K, mods: Control, chars: "\x1b[A",   mode: ~AppCursor  }

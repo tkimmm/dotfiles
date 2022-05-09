@@ -80,7 +80,47 @@
         }
     ],
     "vim.normalModeKeyBindings": [
+             {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
         {
+            "before": [
+                "<C-h>"
+            ],
+            "commands": [
+                "cursorLeft"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                "cursorRight"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "commands": [
+                "cursorUp"
+            ]
+        },
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "commands": [
+                "cursorDown"
+            ]
+        },   {
             "before": [
                 "<S-h>"
             ],

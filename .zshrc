@@ -64,7 +64,7 @@ alias kwj='kubectl get jobs -A --watch'
 # Misc bindings
 alias b="/Users/tkim/dev/Rust/calc/target/release/calc"
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
-alias me="python3 /Users/tkim/dev/Python/modelemp/app.py"
+alias m="cd /Users/tkim/Sync/Dev/Python/modelemp/&& python app.py"
 alias tf="terraform"
 
 clear-git-branches() {

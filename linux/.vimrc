@@ -1,7 +1,9 @@
 " Enabling filetype support provides filetype-specific indenting,
 " syntax highlighting, omni-completion and other useful settings.
-filetype plugin indent on
-" syntax on
+
+"filetype plugin indent on
+
+syntax on
 syntax enable
 set re=0
 
@@ -18,11 +20,13 @@ set ruler                      " Shows the current line number at the bottom-rig
                                " of the screen.
 set wildmenu                   " Great command-line completion, use `<Tab>` to move
                                " around and `<CR>` to validate.
-
-
 " packadd! vimspector
 packloadall
 :imap jk <Esc>
+
+" Pathogen 
+" execute pathogen#infect()
+" command! Slack :call slim#StartSlack()
 
 " Cursor mode customisations
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -37,6 +41,8 @@ nnoremap <silent> <C-q> :bd<CR>
 nnoremap <silent> _ :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :Lines<CR>
 nnoremap <silent> <S-f> :Files<CR>
+set clipboard=unnamedplus
+
 " inoremap { {<CR>}<Esc>ko
 
 " ALE Linting options

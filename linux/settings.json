@@ -1,7 +1,7 @@
 {
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "workbench.colorTheme": "Deepdark Material Theme | Full Black Version",
+    "workbench.colorTheme": "Monokai Pro",
     "workbench.startupEditor": "none",
     "editor.fontFamily": "'JetBrains Mono',Menlo, Monaco, 'Courier New', monospace",
     "breadcrumbs.enabled": false,
@@ -59,7 +59,7 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "terminal.external.osxExec": "iTerm2.app",
+    "terminal.external.osxExec": "alacritty",
     "terminal.integrated.fontFamily": "'Hack','MesloLGS NF'",
     "workbench.panel.defaultLocation": "right",
     "terminal.integrated.cursorStyle": "underline",
@@ -70,17 +70,6 @@
     "vim.surround": true,
     "vim.insertModeKeyBindings": [
         {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindings": [
-             {
             "before": [
                 "j",
                 "k"
@@ -120,12 +109,23 @@
             "commands": [
                 "cursorDown"
             ]
-        },   {
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
             "before": [
                 "<S-h>"
             ],
             "commands": [
                 "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
             ]
         },
         {
@@ -150,5 +150,5 @@
     "rust-client.rlsPath": "$HOME/.cargo/bin/rls",
     "rust-client.disableRustup": true,
     "rust-client.rustupPath": "$HOME/.cargo/bin/rustup",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
 }

@@ -1,7 +1,7 @@
 {
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "workbench.colorTheme": "Deepdark Material Theme | Full Black Version",
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
     "workbench.startupEditor": "none",
     "editor.fontFamily": "'JetBrains Mono',Menlo, Monaco, 'Courier New', monospace",
     "breadcrumbs.enabled": false,
@@ -111,4 +111,5 @@
     "rust-client.disableRustup": true,
     "rust-client.rustupPath": "$HOME/.cargo/bin/rustup",
     "window.zoomLevel": 1,
+    "editor.inlineSuggest.enabled": true,
 }

@@ -77,7 +77,7 @@ set number relativenumber
 highlight SignColumn guibg=NONE ctermbg=NONE
 " highlight EndOfBuffer ctermfg=blue ctermbg=blue
 " hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=blue
-highlight EndOfBuffer ctermfg=black ctermbg=black
+" highlight EndOfBuffer ctermfg=black ctermbg=black
 hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=black
 
 

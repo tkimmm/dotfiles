@@ -53,7 +53,7 @@ let g:ale_lint_on_enter = 0
 
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
-" let g:ale_set_highlights = 0
+let g:ale_set_highlights = 0
 
 " Debugging navigation
 nmap <silent> <C-a> :ALELint<CR>
@@ -75,7 +75,7 @@ highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
 :set fillchars+=vert:\ 
 set number relativenumber
 highlight SignColumn guibg=NONE ctermbg=NONE
-" highlight EndOfBuffer ctermfg=blue ctermbg=blue
+highlight EndOfBuffer ctermfg=black ctermbg=NONE
 " hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=blue
 " highlight EndOfBuffer ctermfg=black ctermbg=black
 hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=black

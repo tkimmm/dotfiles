@@ -6,7 +6,7 @@ window:
     x: 4
     y: 4
   dynamic_padding: true
-  opacity: .85
+  opacity: 0.85
 
 font:
   normal:
@@ -372,30 +372,30 @@ scrolling:
   # Highlight window damage information.
   #highlight_damage: false
 colors:
-  # Default colors
+  name: Orangish
+  author: ""
   primary:
-    background: '#2D2A2E'
-    foreground: '#FCFCFA'
-
-  # Normal colors
+    background: "#000000"
+    foreground: "#ffffff"
+  cursor:
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: '#403E41'
-    red: '#FF6188'
-    green: '#A9DC76'
-    yellow: '#FFD866'
-    blue: '#FC9867'
-    magenta: '#AB9DF2'
-    cyan: '#78DCE8'
-    white: '#FCFCFA'
-
-  # Bright colors
+    black: "#251f1f"
+    red: "#eb4509"
+    green: "#94e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
   bright:
-    black: '#727072'
-    red: '#FF6188'
-    green: '#A9DC76'
-    yellow: '#FFD866'
-    blue: '#FC9867'
-    magenta: '#AB9DF2'
-    cyan: '#78DCE8'
-    white: '#FCFCFA'
-theme: Monokai-Pro
+    black: "#5e5e5e"
+    red: "#eb4509"
+    green: "#95e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
+theme: Orangish

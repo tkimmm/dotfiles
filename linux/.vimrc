@@ -6,6 +6,7 @@
 syntax on
 syntax enable
 set re=0
+set hls!
 
 " `matchit.vim` is built-in so let's enable it!
 " Hit `%` on `if` to jump to `else`.
@@ -103,6 +104,10 @@ let g:mkdp_browser = 'Google Chrome'
 " Insert line below without using insert mode
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+nmap <C-l> <Right>
+nmap <C-h> <Left>
+nmap <C-k> <Up>
+nmap <C-j> <Down>
 
 let g:vimspector_enable_mappings = 'HUMAN'
 

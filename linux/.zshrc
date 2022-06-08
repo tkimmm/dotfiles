@@ -122,6 +122,7 @@ alias kwp='kubectl get pods -A --watch'
 alias kwd='kubectl get deployments -A --watch'
 alias kwe='kubectl get events -A --watch'
 alias kwj='kubectl get jobs -A --watch'
+alias vim='nvim'
 
 # Misc bindings
 alias b="/home/teekm/Dev/Rust/calc/target/release/calc"

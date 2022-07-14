@@ -83,7 +83,11 @@ hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=black
 
 
 " Markdown config
+" Don't need these on linux 
 " let g:mkdp_browser = 'chrome'
+" let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+" let g:mkdp_browser = 'Google Chrome'
+
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {},
@@ -98,8 +102,6 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0
     \ }
 
-let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
-let g:mkdp_browser = 'Google Chrome'
 
 " Insert line below without using insert mode
 nmap <S-Enter> O<Esc>
@@ -132,6 +134,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
+Plug 'sheerun/vim-polyglot'
+
 
 " List ends here. Plugins become visible to Vim after ithis call.
 call plug#end()

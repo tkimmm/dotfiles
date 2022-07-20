@@ -174,7 +174,7 @@ fi
 
 f() {
   local dir
-  DIR=`find * -maxdepth 4 -type d -print 2> /dev/null | fzf-tmux` \
+  DIR=`find * -maxdepth 8 -type d -print 2> /dev/null | fzf-tmux` \
     && cd "$DIR"
 }
 

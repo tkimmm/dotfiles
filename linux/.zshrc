@@ -115,7 +115,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # Kubernetes
 source <(kubectl completion zsh)
 
-alias kx='kubectx'
+alias ks=k9s
 alias k=kubectl
 alias c='clear'
 alias kwp='kubectl get pods -A --watch'

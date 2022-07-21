@@ -125,6 +125,7 @@ alias kwj='kubectl get jobs -A --watch'
 alias vim='nvim'
 
 # Misc bindings
+alias a="alacritty"
 alias b="/home/teekm/Dev/Rust/calc/target/release/calc"
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias m="cd /home/teekm/Sync/Dev/Python/modelemp && python3 app.py"

@@ -123,6 +123,7 @@ alias kwd='kubectl get deployments -A --watch'
 alias kwe='kubectl get events -A --watch'
 alias kwj='kubectl get jobs -A --watch'
 alias vim='nvim'
+alias azctx='/home/teekm/azctx'
 
 # Misc bindings
 alias a="alacritty"

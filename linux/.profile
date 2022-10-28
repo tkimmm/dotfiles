@@ -36,3 +36,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 source "/home/teekm/.rover/env"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

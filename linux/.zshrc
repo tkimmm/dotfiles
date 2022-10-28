@@ -117,6 +117,7 @@ source <(kubectl completion zsh)
 
 alias ks=k9s
 alias k=kubectl
+alias q=exit
 alias c='clear'
 alias kwp='kubectl get pods -A --watch'
 alias kwd='kubectl get deployments -A --watch'
@@ -222,3 +223,4 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+

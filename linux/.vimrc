@@ -1,13 +1,9 @@
-" Enabling filetype support provides filetype-specific indenting,
-" syntax highlighting, omni-completion and other useful settings.
-
-"filetype plugin indent on
-
 syntax on
 syntax enable
 set re=0
 set hls!
 
+" filetype plugin indent on
 " `matchit.vim` is built-in so let's enable it!
 " Hit `%` on `if` to jump to `else`.
 runtime macros/matchit.vim
@@ -34,6 +30,7 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
+" autocmd VimLeave * call system('printf "\e[5 q" > $TTY')
 
 " Buffer navigation and options
 nnoremap <silent> <S-h> :bp<CR>
@@ -73,6 +70,7 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
 :set fillchars+=vert:\ 
 set number relativenumber
 highlight SignColumn guibg=NONE ctermbg=NONE
@@ -80,12 +78,6 @@ highlight EndOfBuffer ctermfg=black ctermbg=NONE
 " hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=blue
 " highlight EndOfBuffer ctermfg=black ctermbg=black
 hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=black
-
-" Markdown config
-" Don't need these on linux 
-" let g:mkdp_browser = 'chrome'
-" let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
-" let g:mkdp_browser = 'Google Chrome'
 
 let g:mkdp_preview_options = {
     \ 'mkit': {},
@@ -158,6 +150,9 @@ let g:airline_theme='deus'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 set noshowmode " removes double status line when using airline
+
+" Make ctrl-p plugin ignore files in .gitignore
+let g:ctrlp_user_command = ['.git/','git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Max line length that prettier will wrap on: a number or 'auto' (use
 " textwidth).

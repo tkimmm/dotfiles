@@ -81,7 +81,6 @@ highlight EndOfBuffer ctermfg=black ctermbg=NONE
 " highlight EndOfBuffer ctermfg=black ctermbg=black
 hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=black
 
-
 " Markdown config
 " Don't need these on linux 
 " let g:mkdp_browser = 'chrome'
@@ -117,7 +116,7 @@ let g:vimspector_enable_mappings = 'HUMAN'
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'"
 Plug 'jlanzarotta/bufexplorer'
@@ -135,7 +134,8 @@ Plug 'preservim/nerdtree'
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
-
+Plug 'ryanoasis/vim-devicons'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " List ends here. Plugins become visible to Vim after ithis call.
 call plug#end()

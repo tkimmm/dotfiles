@@ -1,46 +1,70 @@
 env:
   TERM: xterm-256color
 
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux"
+
 window:
   padding:
-    x: 4
-    y: 4
+    x: 5
+    y: 5
   dynamic_padding: true
   opacity: 0.85
 
 font:
   normal:
     family: "MesloLGS NF"
+    style: Regular
 
-key_bindings:
-  - {
-      key: H,
-      mods: Control,
-      chars: "\e[D",
-      mode: ~AppCursor
-    }
-  - {
-      key: L,
-      mods: Control,
-      chars: "\eOC",
-      mode: ~AppCursor
-    }
-  - {
-      key: J,
-      mods: Control,
-      chars: "\e[B",
-      mode: ~AppCursor
-    }
-  - {
-      key: K,
-      mods: Control,
-      chars: "\e[A",
-      mode: ~AppCursor
-    }
+  # The bold font face
+  bold:
+    family: "MesloLGS NF"
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: "MesloLGS NF"
+    style: Italic
 
 scrolling:
   history: 10000
   multiplier: 5
+
+key_bindings:
+  - { key: L, mods: Control, action: None }
+  - { key: H, mods: Control, action: None }
+  - { key: J, mods: Control, action: None }
+  - { key: K, mods: Control, action: None }
+  - { key: V, mods: Control, action: Paste }
+
+  # - {
+  #     key: H,
+  #     mods: Control,
+  #     chars: "\e[D",
+  #     mode: ~AppCursor
+  #   }
+  # - {
+  #     key: L,
+  #     mods: Control,
+  #     chars: "\eOC",
+  #     mode: ~AppCursor
+  #   }
+  # - {
+  #     key: J,
+  #     mods: Control,
+  #     chars: "\e[B",
+  #     mode: ~AppCursor
+  #   }
+  # - {
+  #     key: K,
+  #     mods: Control,
+  #     chars: "\e[A",
+  #     mode: ~AppCursor
+  #   }
   # Key bindings
   #
   # Key bindings are specified as a list of objects. For example, this is the
@@ -372,30 +396,30 @@ scrolling:
   # Highlight window damage information.
   #highlight_damage: false
 colors:
-  # Default colors
+  name: Orangish
+  author: ""
   primary:
-    background: '#101421'
-    foreground: '#fffbf6'
-
-  # Normal colors
+    background: "#000000"
+    foreground: "#ffffff"
+  cursor:
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: '#2e2e2e'
-    red: '#eb4129'
-    green: '#abe047'
-    yellow: '#f6c744'
-    blue: '#47a0f3'
-    magenta: '#7b5cb0'
-    cyan: '#64dbed'
-    white: '#e5e9f0'
-
-  # Bright colors
+    black: "#251f1f"
+    red: "#eb4509"
+    green: "#94e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
   bright:
-    black: '#565656'
-    red: '#ec5357'
-    green: '#c0e17d'
-    yellow: '#f9da6a'
-    blue: '#49a4f8'
-    magenta: '#a47de9'
-    cyan: '#99faf2'
-    white: '#ffffff'
-theme: iTerm-Default
+    black: "#5e5e5e"
+    red: "#eb4509"
+    green: "#95e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
+theme: Orangish

@@ -1,11 +1,12 @@
+
 {
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "workbench.colorTheme": "Monokai Pro",
+    "workbench.colorTheme": "SynthWave '84",
     "workbench.startupEditor": "none",
     "editor.fontFamily": "'JetBrains Mono',Menlo, Monaco, 'Courier New', monospace",
-    "breadcrumbs.enabled": false,
     "editor.minimap.enabled": false,
+    "editor.selectionClipboard": false,
     "workbench.sideBar.location": "left",
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
@@ -59,11 +60,13 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "terminal.external.osxExec": "alacritty",
+    "terminal.external.osxExec": "iTerm2",
+    "terminal.integrated.shell.linux": "alacritty",
     "terminal.integrated.fontFamily": "'Hack','MesloLGS NF'",
     "workbench.panel.defaultLocation": "right",
     "terminal.integrated.cursorStyle": "underline",
     "vim.cursorStylePerMode.insert": "line",
+    "vim.useSystemClipboard": false,
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.visual": "block",
     "vim.statusBarColors.surroundinputmode": "",
@@ -135,7 +138,12 @@
             "commands": [
                 "workbench.action.nextEditor"
             ]
-        }
+        },{ "before": [
+                "<C-b>"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]}
     ],
     "editor.lineNumbers": "relative",
     "workbench.colorCustomizations": {
@@ -150,5 +158,7 @@
     "rust-client.rlsPath": "$HOME/.cargo/bin/rls",
     "rust-client.disableRustup": true,
     "rust-client.rustupPath": "$HOME/.cargo/bin/rustup",
-    "window.zoomLevel": 1,
+    "window.menuBarVisibility": "toggle",
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
 }

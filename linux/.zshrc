@@ -124,6 +124,7 @@ alias kwe='kubectl get events -A --watch'
 alias kwj='kubectl get jobs -A --watch'
 alias vim='nvim'
 alias azctx='/home/teekm/azctx'
+alias obs='sudo modprobe -r v4l2loopback'
 
 # Misc bindings
 alias a="alacritty"
@@ -131,6 +132,11 @@ alias b="/home/teekm/Dev/Rust/calc/target/release/calc"
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias m="cd /home/teekm/Sync/Dev/Python/modelemp && python3 app.py"
 alias tf="terraform"
+
+# Paths
+export AZURE_CONFIG_DIR=$HOME/.azure
+export AZURE_DEV_COLLECT_TELEMETRY="no"
+
 clear-git-branches() {
 git fetch -p && \
 for branch in $(git branch -vv | awk '/: gone]/{print $1}');
@@ -211,5 +217,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+export PATH=$PATH:/usr/local/go/bin
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="/usr/local/opt/llvm/bin:$PATH"

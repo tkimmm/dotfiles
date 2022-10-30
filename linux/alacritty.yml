@@ -17,20 +17,21 @@ cursor:
 
 window:
   padding:
-    x: 5
-    y: 5
+    x: 10
+    y: 10
   dynamic_padding: true
-  opacity: 0.95
+  opacity: .75
 
 font:
   normal:
     family: "SauceCodePro NFM"
-    # family: "OpenDyslexic NFM"
+    # family: "Anonymice NFM"
     # family: "Roboto Mono NFM"
+    # family: "OpenDyslexic NFM"
     # family: "FantasqueSansMono NFM"
-    # family: "LiterationSans NFM"
+    # family: "LiterationMono NFM"
     # family: "Hack NFM"
-    # family: "Space NFM"
+    # family: "SpaceMono NFM"
     # family: "FiraCode NFM"
     # family: "GoMono NFM"
     # family: "Ubuntu Mono"
@@ -40,10 +41,14 @@ font:
   bold:
     family: "SauceCodePro NFM"
     # family: "FantasqueSansMono NFM"
+    # family: "SpaceMono NFM"
+    # family: "Anonymice NFM"
     # family: "Roboto Mono NFM"
     style: Bold
 
   italic:
+    # family: "SpaceMono NFM"
+    # family: "Anonymice NFM"
     # family: "Roboto Mono NFM"
     family: "SauceCodePro NFM"
     # family: "FantasqueSansMono NFM"
@@ -411,32 +416,30 @@ key_bindings:
   # Highlight window damage information.
   #highlight_damage: false
 colors:
-  # Default colors
+  name: Orangish
+  author: ""
   primary:
-    # hard contrast: background = '#1d2021'
-    background: '#282828'
-    # soft contrast: background = '#32302f'
-    foreground: '#ebdbb2'
-
-  # Normal colors
+    background: "#000000"
+    foreground: "#ffffff"
+  cursor:
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: '#282828'
-    red: '#cc241d'
-    green: '#98971a'
-    yellow: '#d79921'
-    blue: '#458588'
-    magenta: '#b16286'
-    cyan: '#689d6a'
-    white: '#a89984'
-
-  # Bright colors
+    black: "#251f1f"
+    red: "#eb4509"
+    green: "#94e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
   bright:
-    black: '#928374'
-    red: '#fb4934'
-    green: '#b8bb26'
-    yellow: '#fabd2f'
-    blue: '#83a598'
-    magenta: '#d3869b'
-    cyan: '#8ec07c'
-    white: '#ebdbb2'
-theme: Gruvbox-Dark
+    black: "#5e5e5e"
+    red: "#eb4509"
+    green: "#95e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
+theme: Orangish

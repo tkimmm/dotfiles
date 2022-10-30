@@ -64,14 +64,16 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 highlight MatchParen cterm=bold ctermbg=none ctermfg=none
 
-set fillchars=vert:\ 
+" UI related changes
+set fillchars+=vert:\ 
 set number relativenumber
-
 highlight SignColumn guibg=NONE ctermbg=NONE
 highlight EndOfBuffer ctermfg=black ctermbg=NONE
+hi VertSplit guibg=NONE cterm=NONE guifg=NONE ctermbg=NONE ctermfg=black
+hi NonText guifg=bg
+
 " hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=blue
 " highlight EndOfBuffer ctermfg=black ctermbg=black
-hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=black
 
 let g:mkdp_preview_options = {
     \ 'mkit': {},
@@ -102,26 +104,28 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'"
-Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
-" Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gosukiwi/vim-smartpairs'
-
+" Plug 'jlanzarotta/bufexplorer'
+" Plug 'dense-analysis/ale'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'"
+" Plug 'prettier/vim-prettier', { 
+            " \ 'do': 'yarn install', 
+            " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']}
+            
 " List ends here. Plugins become visible to Vim after ithis call.
 call plug#end()
 
@@ -130,17 +134,17 @@ call plug#end()
 " autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
 let NERDTreeMinimalUI=1
 " Otherwise can be done using (I)
-" let g:NERDTreeShowHidden=1
+let g:NERDTreeShowHidden=1
 
 " Fzf settings
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-let g:fzf_layout = { 'right': '100%' } 
+" let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+" let g:fzf_layout = { 'right': '100%' } 
 
 " Airline 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
-let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 set noshowmode " removes double status line when using airline
 
@@ -215,8 +219,7 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
                               
 function! CheckBackspace() abort
   let col = col('.') - 1

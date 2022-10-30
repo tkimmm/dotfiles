@@ -20,27 +20,33 @@ window:
     x: 5
     y: 5
   dynamic_padding: true
-  opacity: .90
-
+  opacity: 0.95
 
 font:
   normal:
-    family: "FantasqueSansMono NFM"
-    # family: "FiraCode"
-    # family: "GoMono Nerd Font"
+    family: "SauceCodePro NFM"
+    # family: "OpenDyslexic NFM"
+    # family: "Roboto Mono NFM"
+    # family: "FantasqueSansMono NFM"
+    # family: "LiterationSans NFM"
+    # family: "Hack NFM"
+    # family: "Space NFM"
+    # family: "FiraCode NFM"
+    # family: "GoMono NFM"
     # family: "Ubuntu Mono"
-    # family: "SourceCodePro"
     # family: "JetBrains Mono"
     style: Regular
 
-  # The bold font face
   bold:
-    family: "FantasqueSansMono NFM"
+    family: "SauceCodePro NFM"
+    # family: "FantasqueSansMono NFM"
+    # family: "Roboto Mono NFM"
     style: Bold
 
-  # The italic font face
   italic:
-    family: "FantasqueSansMono NFM"
+    # family: "Roboto Mono NFM"
+    family: "SauceCodePro NFM"
+    # family: "FantasqueSansMono NFM"
     # family: "JetBrains Mono"
     style: Italic
 
@@ -49,35 +55,31 @@ scrolling:
   multiplier: 5
 
 key_bindings:
-  - { key: L, mods: Control, action: None }
-  - { key: H, mods: Control, action: None }
-  - { key: J, mods: Control, action: None }
-  - { key: K, mods: Control, action: None }
-  - { key: V, mods: Control, action: Paste }
-  # - {
-  #     key: H,
-  #     mods: Control,
-  #     chars: "\e[D",
-  #     mode: ~AppCursor
-  #   }
-  # - {
-  #     key: L,
-  #     mods: Control,
-  #     chars: "\eOC",
-  #     mode: ~AppCursor
-  #   }
-  # - {
-  #     key: J,
-  #     mods: Control,
-  #     chars: "\e[B",
-  #     mode: ~AppCursor
-  #   }
-  # - {
-  #     key: K,
-  #     mods: Control,
-  #     chars: "\e[A",
-  #     mode: ~AppCursor
-  #   }
+  # - { key: V, mods: Control, action: Paste }
+  - {
+      key: H,
+      mods: Control,
+      chars: "\e[D",
+      mode: ~AppCursor
+    }
+  - {
+      key: L,
+      mods: Control,
+      chars: "\eOC",
+      mode: ~AppCursor
+    }
+  - {
+      key: J,
+      mods: Control,
+      chars: "\e[B",
+      mode: ~AppCursor
+    }
+  - {
+      key: K,
+      mods: Control,
+      chars: "\e[A",
+      mode: ~AppCursor
+    }
   # Key bindings
   #
   # Key bindings are specified as a list of objects. For example, this is the

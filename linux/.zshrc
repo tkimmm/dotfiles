@@ -134,6 +134,9 @@ alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branc
 alias m="cd /home/teekm/Sync/Dev/Python/modelemp && python3 app.py"
 alias tf="terraform"
 
+# ignore Control-D behaviour
+set -o ignoreeof
+
 # Paths
 export AZURE_CONFIG_DIR=$HOME/.azure
 export AZURE_DEV_COLLECT_TELEMETRY="no"

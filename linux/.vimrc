@@ -17,20 +17,15 @@ set ruler                      " Shows the current line number at the bottom-rig
                                " of the screen.
 set wildmenu                   " Great command-line completion, use `<Tab>` to move
                                " around and `<CR>` to validate.
-" packadd! vimspector
 packloadall
-:imap jk <Esc>
 
-" Pathogen 
-" execute pathogen#infect()
-" command! Slack :call slim#StartSlack()
+:imap jk <Esc>
 
 " Cursor mode customisations
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
-" autocmd VimLeave * call system('printf "\e[5 q" > $TTY')
 
 " Buffer navigation and options
 nnoremap <silent> <S-h> :bp<CR>
@@ -44,23 +39,21 @@ set clipboard=unnamedplus
 " inoremap { {<CR>}<Esc>ko
 
 " ALE Linting options
-let g:ale_linters_explicit = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-
-let g:ale_sign_error = '•'
-let g:ale_sign_warning = '•'
-let g:ale_set_highlights = 0
+" let g:ale_linters_explicit = 1
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_insert_leave = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_sign_error = '•'
+" let g:ale_sign_warning = '•'
+" let g:ale_set_highlights = 0
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
 
 " Debugging navigation
 nmap <silent> <C-a> :ALELint<CR>
 nmap <silent> <C-x> :ALENext<CR>
 nmap <silent> <C-z> :ALEPrevious<CR>
 
-" set signcolumn=number
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight clear SpellCap
@@ -69,10 +62,11 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
+highlight MatchParen cterm=bold ctermbg=none ctermfg=none
 
-:set fillchars+=vert:\ 
+set fillchars=vert:\ 
 set number relativenumber
+
 highlight SignColumn guibg=NONE ctermbg=NONE
 highlight EndOfBuffer ctermfg=black ctermbg=NONE
 " hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=blue
@@ -96,7 +90,6 @@ let g:mkdp_preview_options = {
 
 " Insert line below without using insert mode
 nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
 nmap <C-l> <Right>
 nmap <C-h> <Left>
 nmap <C-k> <Up>
@@ -119,15 +112,15 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'gosukiwi/vim-smartpairs'
 
 " List ends here. Plugins become visible to Vim after ithis call.
 call plug#end()
@@ -193,6 +186,7 @@ let g:prettier#config#require_pragma = 'false'
 " lf|crlf|cr|all
 " defaut: 'lf'
 let g:prettier#config#end_of_line = get(g:, 'prettier#config#end_of_line', 'lf')
+
 " May need for vim (not neovim) since coc.nvim calculate byte offset by count
 " utf-8 byte sequence.
 set encoding=utf-8
@@ -223,7 +217,7 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
+                              
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -346,3 +340,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+

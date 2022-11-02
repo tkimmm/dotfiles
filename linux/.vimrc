@@ -2,7 +2,7 @@ syntax on
 syntax enable
 set re=0
 set hls!
-set nopaste
+" set nopaste
 
 " ---------------------------------------------------------------------------
 "
@@ -22,8 +22,10 @@ set ruler                      " Shows the current line number at the bottom-rig
                                " of the screen.
 set wildmenu                   " Great command-line completion, use `<Tab>` to move
                                " around and `<CR>` to validate.
-set number relativenumber
+set ignorecase                 " ignore cases when searching
+set number relativenumber 
 set scrolloff=4
+set clipboard=unnamedplus
 
 " May need for vim (not neovim) since coc.nvim calculate byte offset by count
 " utf-8 byte sequence.
@@ -65,6 +67,11 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
+
+autocmd FileType markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal complete+=kspell
+autocmd FileType gitcommit setlocal complete+=kspell
 
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
@@ -109,8 +116,6 @@ Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
 call plug#end()
 
 " VIM Nerdtree
@@ -119,7 +124,7 @@ let g:NERDTreeShowHidden=0
 
 " Fzf settings
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-let g:fzf_layout = { 'right': '100%' } 
+let g:fzf_layout = { 'up': '~90%', 'window': { 'width': 0.8, 'height': 0.8, 'yoffset': 0.5, 'xoffset': 0.5 }}
 
 " Airline 
 let g:airline#extensions#tabline#enabled = 1

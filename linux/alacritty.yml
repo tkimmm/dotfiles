@@ -25,7 +25,7 @@ window:
 
 font:
   offset:
-    x: 1
+    x: 0
     y: 3
   normal:
     # family: "SauceCodePro NFM"

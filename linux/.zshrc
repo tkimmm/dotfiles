@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl vi-mode zsh-autosuggestions)
+plugins=(git fzf kubectl vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,12 +118,12 @@ source <(kubectl completion zsh)
 alias ks=k9s
 alias k=kubectl
 alias q=exit
+alias v='nvim'
 alias c='clear'
 alias kwp='kubectl get pods -A --watch'
 alias kwd='kubectl get deployments -A --watch'
 alias kwe='kubectl get events -A --watch'
 alias kwj='kubectl get jobs -A --watch'
-alias vim='nvim'
 alias azctx='/home/teekm/azctx'
 alias obs='sudo modprobe -r v4l2loopback'
 

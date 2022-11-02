@@ -2,13 +2,18 @@ syntax on
 syntax enable
 set re=0
 set hls!
+set nopaste
 
-" filetype plugin indent on
-" `matchit.vim` is built-in so let's enable it!
+" ---------------------------------------------------------------------------
+"
+" Key Configuration
+"
+" ---------------------------------------------------------------------------
+
 " Hit `%` on `if` to jump to `else`.
-runtime macros/matchit.vim
+"`matchit.vim` is built-in so let's enable it!
+" runtime macros/matchit.vim
 
-" various settings
 set autoindent                 " Minimal automatic indenting for any filetype.
 set backspace=indent,eol,start " Proper backspace behavior.
 set hidden                     " Possibility to have more than one unsaved buffers.
@@ -17,42 +22,33 @@ set ruler                      " Shows the current line number at the bottom-rig
                                " of the screen.
 set wildmenu                   " Great command-line completion, use `<Tab>` to move
                                " around and `<CR>` to validate.
+set number relativenumber
+set scrolloff=4
+
 packloadall
-
-:imap jk <Esc>
-
-" Cursor mode customisations
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
-
 " Buffer navigation and options
 nnoremap <silent> <S-h> :bp<CR>
 nnoremap <silent> <S-l> :bn<CR>
 nnoremap <silent> <C-q> :bd<CR>
 nnoremap <silent> _ :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :Lines<CR>
-nnoremap <silent> <S-f> :Files<CR>
-set clipboard=unnamedplus
+nnoremap <silent> <C-p> :Files<CR>
+:imap jk <Esc>
 
-" inoremap { {<CR>}<Esc>ko
+" Insert line below without using insert mode
+nmap <S-Enter> O<Esc>
+nmap <C-l> <Right>
+nmap <C-h> <Left>
+nmap <C-k> <Up>
+nmap <C-j> <Down>
+let g:vimspector_enable_mappings = 'HUMAN'
+let mapleader="\<Space>"
 
-" ALE Linting options
-" let g:ale_linters_explicit = 1
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_on_insert_leave = 0
-" let g:ale_lint_on_enter = 0
-" let g:ale_sign_error = '•'
-" let g:ale_sign_warning = '•'
-" let g:ale_set_highlights = 0
-" highlight clear ALEErrorSign
-" highlight clear ALEWarningSign
-
-" Debugging navigation
-nmap <silent> <C-a> :ALELint<CR>
-nmap <silent> <C-x> :ALENext<CR>
-nmap <silent> <C-z> :ALEPrevious<CR>
+" Cursor mode customisations
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
 
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
@@ -66,15 +62,58 @@ highlight MatchParen cterm=bold ctermbg=none ctermfg=none
 
 " UI related changes
 set fillchars+=vert:\ 
-set number relativenumber
 highlight SignColumn guibg=NONE ctermbg=NONE
 highlight EndOfBuffer ctermfg=black ctermbg=NONE
 hi VertSplit guibg=NONE cterm=NONE guifg=NONE ctermbg=NONE ctermfg=black
 hi NonText guifg=bg
 
-" hi VertSplit guibg=NONE guifg=NONE ctermbg=NONE ctermfg=blue
-" highlight EndOfBuffer ctermfg=black ctermbg=black
+" ---------------------------------------------------------------------------
+"
+" Plugins will be downloaded under the specified directory.
+"
+" ---------------------------------------------------------------------------
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdtree'
+Plug 'rust-lang/rust.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'ryanoasis/vim-devicons'
+Plug 'gosukiwi/vim-smartpairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'"
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+call plug#end()
 
+" VIM Nerdtree
+let NERDTreeMinimalUI=1
+let g:NERDTreeShowHidden=0
+
+" Fzf settings
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+let g:fzf_layout = { 'right': '100%' } 
+
+" Airline 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='deus'
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+set noshowmode " removes double status line when using airline
+
+" Markdown Preview
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {},
@@ -89,67 +128,6 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0
     \ }
 
-
-" Insert line below without using insert mode
-nmap <S-Enter> O<Esc>
-nmap <C-l> <Right>
-nmap <C-h> <Left>
-nmap <C-k> <Up>
-nmap <C-j> <Down>
-
-let g:vimspector_enable_mappings = 'HUMAN'
-
-" Plugins will be downloaded under the specified directory.
-call plug#begin('~/.vim/plugged')
-
-" Declare the list of plugins.
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdtree'
-Plug 'rust-lang/rust.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'ryanoasis/vim-devicons'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'gosukiwi/vim-smartpairs'
-" Plug 'jlanzarotta/bufexplorer'
-" Plug 'dense-analysis/ale'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'"
-" Plug 'prettier/vim-prettier', { 
-            " \ 'do': 'yarn install', 
-            " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']}
-            
-" List ends here. Plugins become visible to Vim after ithis call.
-call plug#end()
-
-" VIM Nerdtree
-" autocmd StdinReadPre * let s:std_in=1 " if no file specified then open tree
-" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
-let NERDTreeMinimalUI=1
-" Otherwise can be done using (I)
-let g:NERDTreeShowHidden=1
-
-" Fzf settings
-" let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-" let g:fzf_layout = { 'right': '100%' } 
-
-" Airline 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='deus'
-let g:airline#extensions#ale#enabled = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-set noshowmode " removes double status line when using airline
-
-" Make ctrl-p plugin ignore files in .gitignore
-let g:ctrlp_user_command = ['.git/','git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Max line length that prettier will wrap on: a number or 'auto' (use
 " textwidth).
@@ -298,14 +276,15 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
+
+" if has('nvim-0.4.0') || has('patch-8.2.0750')
+"   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+" endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
@@ -344,3 +323,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+"Run Prettier through coc
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')

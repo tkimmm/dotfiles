@@ -17,14 +17,19 @@ cursor:
 
 window:
   padding:
-    x: 10
-    y: 10
+    x: 3
+    y: 3
   dynamic_padding: true
-  opacity: .75
+  opacity: 0.80
+  # opacity: 1
 
 font:
+  offset:
+    x: 1
+    y: 3
   normal:
-    family: "SauceCodePro NFM"
+    # family: "SauceCodePro NFM"
+    family: "JetBrains Mono NFM"
     # family: "Anonymice NFM"
     # family: "Roboto Mono NFM"
     # family: "OpenDyslexic NFM"
@@ -35,11 +40,11 @@ font:
     # family: "FiraCode NFM"
     # family: "GoMono NFM"
     # family: "Ubuntu Mono"
-    # family: "JetBrains Mono"
     style: Regular
 
   bold:
-    family: "SauceCodePro NFM"
+    # family: "SauceCodePro NFM"
+    family: "JetBrains Mono NFM"
     # family: "FantasqueSansMono NFM"
     # family: "SpaceMono NFM"
     # family: "Anonymice NFM"
@@ -47,10 +52,11 @@ font:
     style: Bold
 
   italic:
+    family: "JetBrains Mono NFM"
+    # family: "SauceCodePro NFM"
     # family: "SpaceMono NFM"
     # family: "Anonymice NFM"
     # family: "Roboto Mono NFM"
-    family: "SauceCodePro NFM"
     # family: "FantasqueSansMono NFM"
     # family: "JetBrains Mono"
     style: Italic
@@ -416,30 +422,30 @@ key_bindings:
   # Highlight window damage information.
   #highlight_damage: false
 colors:
-  name: Orangish
-  author: ""
+  # Default colors
   primary:
-    background: "#000000"
-    foreground: "#ffffff"
-  cursor:
-    text: "#000000"
-    cursor: "#ffffff"
+    background: '#263238'
+    foreground: '#eeffff'
+
+  # Normal colors
   normal:
-    black: "#251f1f"
-    red: "#eb4509"
-    green: "#94e76b"
-    yellow: "#ffac18"
-    blue: "#46aede"
-    magenta: "#e32c57"
-    cyan: "#d6dbac"
-    white: "#efefef"
+    black: '#000000' # Arbitrary
+    red: '#e53935'
+    green: '#91b859'
+    yellow: '#ffb62c'
+    blue: '#6182b8'
+    magenta: '#ff5370' # Dark pink of the original material theme
+    cyan: '#39adb5'
+    white: '#a0a0a0' # Arbitrary
+
+  # Bright colors
   bright:
-    black: "#5e5e5e"
-    red: "#eb4509"
-    green: "#95e76b"
-    yellow: "#ffac18"
-    blue: "#46aede"
-    magenta: "#e32c57"
-    cyan: "#d6dbac"
-    white: "#efefef"
-theme: Orangish
+    black: '#4e4e4e' # Arbitrary
+    red: '#ff5370'
+    green: '#c3e88d'
+    yellow: '#ffcb6b'
+    blue: '#82aaff'
+    magenta: '#f07178' # Pink of the original material theme
+    cyan: '#89ddff'
+    white: '#ffffff' # Arbitrary
+theme: Material-Theme

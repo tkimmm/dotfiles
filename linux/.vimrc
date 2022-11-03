@@ -98,6 +98,7 @@ hi NonText guifg=bg
 "
 " ---------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
+
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -118,6 +119,8 @@ Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'voldikss/vim-floaterm'
+
 call plug#end()
 
 " VIM Nerdtree
@@ -151,6 +154,12 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0
     \ }
 
+
+" Float Terminal settings
+let g:floaterm_keymap_toggle = '<Leader>f'
+hi Floaterm guibg=black
+" Set floating window border line color to cyan, and background to orange
+hi FloatermBorder guibg=black guifg=black
 
 " Max line length that prettier will wrap on: a number or 'auto' (use
 " textwidth).

@@ -128,7 +128,6 @@ alias azctx='/home/teekm/azctx'
 alias obs='sudo modprobe -r v4l2loopback'
 
 # Misc bindings
-alias a="alacritty"
 alias b="/home/teekm/Dev/Rust/calc/target/release/calc"
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias m="cd /home/teekm/Sync/Dev/Python/modelemp && python3 app.py"
@@ -148,32 +147,28 @@ for branch in $(git branch -vv | awk '/: gone]/{print $1}');
 done
 }
 
-# vim cursor mode switching in terminal
-function zle-keymap-select zle-line-init
-{
-    # change cursor shape in iTerm2
-    case $KEYMAP in
-        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
-        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
-    esac
+### Activate vi / vim mode:
+bindkey -v
 
-    zle reset-prompt
-    zle -R
+# Remove delay when entering normal mode (vi)
+KEYTIMEOUT=5
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]] || [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ $KEYMAP == main ]] || [[ $KEYMAP == viins ]] || [[ $KEYMAP = '' ]] || [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
 }
 
-function zle-line-finish
-{
-    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
-}
-
-zle -N zle-line-init
-zle -N zle-line-finish
 zle -N zle-keymap-select
+# Start with beam shape cursor on zsh startup and after every command.
+zle-line-init() { zle-keymap-select 'beam'}
 
 # Auto completions
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
   autoload -Uz compinit
   compinit
 fi
@@ -214,6 +209,7 @@ du() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

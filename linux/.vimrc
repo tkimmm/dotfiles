@@ -10,6 +10,9 @@ set hls!
 "
 " ---------------------------------------------------------------------------
 
+"  Remember to use Change To Word or Change From Word or even Change /searc
+"  word, change no. of lines then up or down
+
 " Hit `%` on `if` to jump to `else`.
 "`matchit.vim` is built-in so let's enable it!
 " runtime macros/matchit.vim
@@ -51,6 +54,7 @@ nnoremap <silent> <C-q> :bd<CR>
 nnoremap <silent> _ :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :Lines<CR>
 nnoremap <silent> <C-p> :Files<CR>
+let mapleader="\<Space>"
 :imap jk <Esc>
 
 " Insert line below without using insert mode
@@ -59,20 +63,20 @@ nmap <C-l> <Right>
 nmap <C-h> <Left>
 nmap <C-k> <Up>
 nmap <C-j> <Down>
-let g:vimspector_enable_mappings = 'HUMAN'
-let mapleader="\<Space>"
 
 " Cursor mode customisations
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
+" printf '\033[5 q' - beam
+" printf '\033[3 q' - underscore
+" printf '\033[2 q' - block
+" autocmd VimLeave * call system('printf "\033[5 q" > $TTY')
 
+" Underlines incorrect spelling in markdown files
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
 autocmd FileType markdown setlocal complete+=kspell
 autocmd FileType gitcommit setlocal complete+=kspell
 
+" UI related changes
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight clear SpellCap
@@ -82,8 +86,6 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 highlight MatchParen cterm=bold ctermbg=none ctermfg=none
-
-" UI related changes
 set fillchars+=vert:\ 
 highlight SignColumn guibg=NONE ctermbg=NONE
 highlight EndOfBuffer ctermfg=black ctermbg=NONE

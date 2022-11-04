@@ -77,19 +77,20 @@ autocmd FileType markdown setlocal complete+=kspell
 autocmd FileType gitcommit setlocal complete+=kspell
 
 " UI related changes
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
-highlight clear SpellRare
-highlight SpellRare term=underline cterm=underline
-highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
-highlight MatchParen cterm=bold ctermbg=none ctermfg=none
 set fillchars+=vert:\ 
-highlight SignColumn guibg=NONE ctermbg=NONE
-highlight EndOfBuffer ctermfg=black ctermbg=NONE
+hi clear SpellBad
+hi SpellBad term=standout ctermfg=1 term=underline cterm=underline
+hi clear SpellCap
+hi SpellCap term=underline cterm=underline
+hi clear SpellRare
+hi SpellRare term=underline cterm=underline
+hi clear SpellLocal
+hi SpellLocal term=underline cterm=underline
+hi MatchParen cterm=bold ctermbg=none ctermfg=none
+hi SignColumn guibg=NONE ctermbg=NONE
+hi EndOfBuffer ctermfg=black ctermbg=NONE
 hi VertSplit guibg=NONE cterm=NONE guifg=NONE ctermbg=NONE ctermfg=black
+hi CocInlayHint guibg=Red guifg=Blue ctermbg=NONE ctermfg=Grey
 hi NonText guifg=bg
 
 " ---------------------------------------------------------------------------

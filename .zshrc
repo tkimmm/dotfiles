@@ -60,6 +60,7 @@ alias kwp='kubectl get pods -A --watch'
 alias kwd='kubectl get deployments -A --watch'
 alias kwe='kubectl get events -A --watch'
 alias kwj='kubectl get jobs -A --watch'
+alias v=nvim
 
 # Misc bindings
 alias b="/Users/tkim/dev/Rust/calc/target/release/calc"

@@ -34,3 +34,4 @@ test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source "/home/teekm/.rover/env"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -421,31 +421,30 @@ key_bindings:
   # Highlight window damage information.
   #highlight_damage: false
 colors:
-  cursor:
-    text: "#fefff2"
-    cursor: "#ffb86c"
-  selection:
-    text: "#e6e6e6"
-    background: "#555555"
+  name: Orangish
+  author: ""
   primary:
-    background: "#292a2b"
-    foreground: "#e6e6e6"
+    background: "#000000"
+    foreground: "#ffffff"
+  cursor:
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: "#292a2b"
-    red: "#ff2c6d"
-    green: "#19f9d8"
-    yellow: "#ffb86c"
-    blue: "#45a9f9"
-    magenta: "#ff75b5"
-    cyan: "#6fc1ff"
-    white: "#e6e6e6"
+    black: "#251f1f"
+    red: "#eb4509"
+    green: "#94e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
   bright:
-    black: "#555555"
-    red: "#ff2c6d"
-    green: "#19f9d8"
-    yellow: "#ffcc95"
-    blue: "#6fc1ff"
-    magenta: "#ff9ac1"
-    cyan: "#6fc1ff"
-    white: "#ffffff"
-theme: Panda
+    black: "#5e5e5e"
+    red: "#eb4509"
+    green: "#95e76b"
+    yellow: "#ffac18"
+    blue: "#46aede"
+    magenta: "#e32c57"
+    cyan: "#d6dbac"
+    white: "#efefef"
+theme: Orangish

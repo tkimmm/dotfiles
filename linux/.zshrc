@@ -222,3 +222,8 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/teekm/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

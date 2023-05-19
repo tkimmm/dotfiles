@@ -56,7 +56,8 @@ require('lazy').setup({
     'folke/which-key.nvim',
     opts = {
       plugins = {
-        marks = false
+        marks = false,
+        window = false,
       }
 
     }
@@ -97,7 +98,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'sonokai',
+        theme = 'catppuccin',
+        -- theme = 'sonokai',
         component_separators = '|',
         section_separators = '',
       },
@@ -190,9 +192,8 @@ vim.keymap.set('n', '<S-l>', ':bn<CR>', {})
 vim.keymap.set('n', '<C-q>', ':bd<CR>', {})
 vim.keymap.set('n', '<C-f>', ':bd<CR>', {})
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '_', ':Neotree toggle <CR>', { silent = true })
+vim.keymap.set('n', '_', ':NvimTreeFindFileToggle<CR>', { silent = true })
 
--- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 

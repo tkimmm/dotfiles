@@ -92,18 +92,49 @@ require('lazy').setup({
     },
   },
   {
-    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'catppuccin',
-        -- theme = 'sonokai',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
+    -- opts = {
+    -- options = {
+    -- disabled_filetypes = { 'NvimTree' },
+    -- icons_enabled = false,
+    -- theme = 'catppuccin',
+    -- component_separators = '|',
+    -- section_separators = '',
+    -- },
+    -- },
+    config = function()
+      require('lualine').setup {
+        options = {
+          theme = 'catppuccin',
+          disabled_filetypes = { 'NvimTree' },
+          component_separators = '|',
+          section_separators = { left = '', right = '' },
+        },
+        sections = {
+          lualine_a = {
+            { 'mode', separator = { left = '' }, right_padding = 2 },
+          },
+          lualine_b = { 'filename', 'branch' },
+          lualine_c = { 'fileformat' },
+          lualine_x = {},
+          lualine_y = { 'filetype', 'progress' },
+          lualine_z = {
+            { 'location', separator = { right = '' }, left_padding = 2 },
+          },
+        },
+        inactive_sections = {
+          lualine_a = { 'filename' },
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = { 'location' },
+        },
+        tabline = {},
+        extensions = {},
+      }
+    end
+
   },
 
   {
@@ -139,9 +170,6 @@ require('lazy').setup({
     build = ":TSUpdate",
   },
 
-  require 'kickstart.plugins.autoformat',
-  require 'kickstart.plugins.debug',
-  require 'custom.plugins.theme',
   { import = 'custom.plugins' },
 }, {})
 
@@ -187,6 +215,7 @@ vim.opt.relativenumber = true
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('i', 'jk', '<Esc>', {})
+
 vim.keymap.set('n', '<S-h>', ':bp<CR>', {})
 vim.keymap.set('n', '<S-l>', ':bn<CR>', {})
 vim.keymap.set('n', '<C-q>', ':bd<CR>', {})
@@ -228,7 +257,7 @@ vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { d
 vim.keymap.set('n', '<C-f>', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
+    -- winblend = 10,
     previewer = true,
   })
 end, { desc = '[f] Fuzzily search in current buffer' })
@@ -329,8 +358,9 @@ local on_attach = function(_, bufnr)
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+
+  -- nmap('<leader>d', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  -- nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]ebugging')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
@@ -443,51 +473,51 @@ cmp.setup {
 }
 
 -- dap
-local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
-
-dap.adapters.firefox = {
-  type = 'executable',
-  command = 'node',
-  args = { os.getenv('HOME') .. '/Downloads/vscode-firefox-debug/dist/adapter.bundle.js' },
-}
-
-dap.configurations.typescript = {
-  {
-    name = 'Debug with Firefox',
-    type = 'firefox',
-    request = 'launch',
-    reAttach = true,
-    url = 'http://localhost:8003',
-    webRoot = '${workspaceFolder}',
-    firefoxExecutable = '/usr/bin/firefox'
-  }
-}
-
-dap.adapters.firefox = {
-  type = 'executable',
-  command = 'npm run start:local',
-  args = { os.getenv('HOME') .. '/Downloads/vscode-firefox-debug/dist/adapter.bundle.js' },
-}
-
-dap.configurations.typescript = {
-  {
-    name = 'Debug with Firefox',
-    type = 'firefox',
-    request = 'launch',
-    reAttach = true,
-    url = 'http://localhost:8003',
-    webRoot = '${workspaceFolder}',
-    firefoxExecutable = '/usr/bin/firefox'
-  }
-}
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- local dap, dapui = require("dap"), require("dapui")
+-- dap.listeners.after.event_initialized["dapui_config"] = function()
+--   dapui.open()
+-- end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--   dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close()
+-- end
+--
+-- dap.adapters.firefox = {
+--   type = 'executable',
+--   command = 'node',
+--   args = { os.getenv('HOME') .. '/Downloads/vscode-firefox-debug/dist/adapter.bundle.js' },
+-- }
+--
+-- dap.configurations.typescript = {
+--   {
+--     name = 'Debug with Firefox',
+--     type = 'firefox',
+--     request = 'launch',
+--     reAttach = true,
+--     url = 'http://localhost:8003',
+--     webRoot = '${workspaceFolder}',
+--     firefoxExecutable = '/usr/bin/firefox'
+--   }
+-- }
+--
+-- dap.adapters.firefox = {
+--   type = 'executable',
+--   command = 'npm run start:local',
+--   args = { os.getenv('HOME') .. '/Downloads/vscode-firefox-debug/dist/adapter.bundle.js' },
+-- }
+--
+-- dap.configurations.typescript = {
+--   {
+--     name = 'Debug with Firefox',
+--     type = 'firefox',
+--     request = 'launch',
+--     reAttach = true,
+--     url = 'http://localhost:8003',
+--     webRoot = '${workspaceFolder}',
+--     firefoxExecutable = '/usr/bin/firefox'
+--   }
+-- }
+-- -- The line beneath this is called `modeline`. See `:help modeline`
+-- -- vim: ts=2 sts=2 sw=2 et

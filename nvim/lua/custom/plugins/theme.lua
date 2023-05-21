@@ -1,8 +1,5 @@
 -- vim.cmd([[let g:sonokai_style = 'andromeda']])
 -- vim.cmd([[let g:sonokai_better_performance = 1]])
-
--- colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-
 return {
 
   -- {
@@ -16,17 +13,17 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    priority = 1000,
     config = function()
-      vim.cmd.colorscheme "catppuccin"
+      -- vim.cmd.colorscheme "catppuccin"
       require("catppuccin").setup({
         flavour = "mocha", -- latte, frappe, macchiato, mocha
         background = {
-          -- :h background
           light = "latte",
           dark = "mocha",
         },
         transparent_background = true,
-        show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+        show_end_of_buffer = false,
         term_colors = false,
         dim_inactive = {
           enabled = false,
@@ -61,11 +58,7 @@ return {
           mini = false,
         },
       })
-
-      -- setup must be called before loading
       vim.cmd.colorscheme "catppuccin"
     end,
   },
-
-
 }

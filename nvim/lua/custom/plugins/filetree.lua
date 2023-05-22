@@ -17,7 +17,7 @@ return {
       renderer = {
         group_empty = true, -- default: true. Compact folders that only contain a single folder into one node in the file tree.
         highlight_git = false,
-        full_name = false,
+        full_name = true,
         highlight_opened_files = "icon", -- "none" (default), "icon", "name" or "all"
         highlight_modified = "icon",     -- "none", "name" or "all". Nice and subtle, override the open icon
         root_folder_label = ":~:s?$?/..?",

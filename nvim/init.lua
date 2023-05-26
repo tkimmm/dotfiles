@@ -253,7 +253,7 @@ pcall(require('telescope').load_extension, 'fzf')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader><space>', ':Format<CR>', { silent = true })
 vim.keymap.set('n', '<C-f>', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -261,6 +261,12 @@ vim.keymap.set('n', '<C-f>', function()
     previewer = true,
   })
 end, { desc = '[f] Fuzzily search in current buffer' })
+
+vim.keymap.set('n', '<leader>cl', function()
+  local input = vim.fn.input('Enter variable: ')
+  local line = 'console.log(' .. input .. ');'
+  vim.api.nvim_put({ line }, 'l', true, true)
+end, { desc = '' })
 
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').git_files, { desc = '[F]ind [G]it files' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').oldfiles, { desc = '[F]ind Recent [F]iles' })
@@ -351,6 +357,7 @@ local on_attach = function(_, bufnr)
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
+
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')

@@ -2,4 +2,4 @@
 #!/bin/bash
 
 rm -rf ~/.config/nvim/ 
-cp ./nvim/ ~/.config/nvim/ 
+cp -r ./nvim/ ~/.config/nvim/ 

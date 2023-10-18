@@ -186,7 +186,7 @@ fi
 
 f() {
   local dir
-  DIR=`find * -maxdepth 8 -type d -print 2> /dev/null | fzf-tmux` \
+  DIR=$(find ~/Sync -maxdepth 8 -type d \( -name .git -o -name node_modules -o -name release \) -prune -o -print 2> /dev/null | fzf-tmux) \
     && cd "$DIR"
 }
 

@@ -34,4 +34,6 @@ test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source "/home/teekm/.rover/env"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

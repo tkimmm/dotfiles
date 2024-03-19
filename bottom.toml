@@ -1,0 +1,20 @@
+[[row]]
+ratio = 30
+[[row.child]]
+type = "cpu"
+[[row.child]]
+type = "mem"
+[[row]]
+ratio = 30
+[[row.child]]
+[[row.child.child]]
+type = "temp"
+[[row.child.child]]
+type = "disk"
+[[row.child]]
+type = "net"
+[[row]]
+ratio = 40
+[[row.child]]
+type = "proc"
+default = true

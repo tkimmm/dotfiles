@@ -6,6 +6,11 @@ fi
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 
+export LANGUAGE=en_AU.UTF-8
+export LC_ALL=en_AU.UTF-8
+export LC_CTYPE="UTF-8"
+export LANG=en_AU.UTF-8
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -126,6 +131,7 @@ alias kwe='kubectl get events -A --watch'
 alias kwj='kubectl get jobs -A --watch'
 alias azctx='/home/teekm/azctx'
 alias obs='sudo modprobe -r v4l2loopback'
+alias or='git remote -v | grep origin | grep -o "github.com[:/][^ ]*" | sed "s/.*github.com[\/\:]//" | xargs -I {} open https://github.com/{} > /dev/null 2>&1 &'
 
 # Misc bindings
 alias b="/home/teekm/Dev/Rust/calc/target/release/calc"
@@ -134,6 +140,8 @@ alias m="cd /home/teekm/Sync/Dev/Python/modelemp && python3 app.py"
 alias tf="terraform"
 alias syncoff="brew services stop syncthing"
 alias syncon="brew services start syncthing"
+alias gg='lazygit'
+alias db='cd /home/teekm/Sync/vim/ && nvim'
 
 # ignore Control-D behaviour
 set -o ignoreeof
@@ -182,8 +190,8 @@ if type rg &> /dev/null; then
 fi
 
 f() {
-  local dir
-  DIR=`find * -maxdepth 8 -type d -print 2> /dev/null | fzf-tmux` \
+    local dir
+    DIR=$(find ~/Sync -maxdepth 8 -type d \( -name .git -o -name node_modules -o -name release -o -name QubozDownloader \) -prune -o -type d -print 2> /dev/null | fzf-tmux) \
     && cd "$DIR"
 }
 
@@ -207,6 +215,12 @@ dd() {
 
 du() {
 	sudo systemctl enable docker.service docker.socket
+}
+
+gas() {
+  echo "AWS Secret Name:"
+  read secret
+  aws secretsmanager get-secret-value --secret-id ${secret} | jq -r '.SecretString' | jq .
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

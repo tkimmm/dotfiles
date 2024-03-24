@@ -16,13 +16,12 @@ window:
     x: 4
     y: 4
   dynamic_padding: true
-  # opacity: 0.90
-  opacity: 1
+  opacity: 0.80
 
 # Good themes
 # ShadesOfPurple, panda
 font:
-  size: 10.5
+  size: 12
   offset:
     x: 0
     y: 0

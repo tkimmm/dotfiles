@@ -141,7 +141,8 @@ alias tf="terraform"
 alias syncoff="brew services stop syncthing"
 alias syncon="brew services start syncthing"
 alias gg='lazygit'
-alias db='cd /home/teekm/Sync/vim/ && nvim'
+alias n='cd /home/teekm/Sync/vim/ && nvim'
+alias db='cd /home/teekm/Sync/pscale-docker/ && nvim'
 
 # ignore Control-D behaviour
 set -o ignoreeof

@@ -143,6 +143,9 @@ alias syncon="brew services start syncthing"
 alias gg='lazygit'
 alias n='cd /home/teekm/Sync/vim/ && nvim'
 alias db='cd /home/teekm/Sync/pscale-docker/ && nvim'
+alias air='~/.air'
+alias air='$(go env GOPATH)/bin/air'
+alias mindarc='/home/teekm/Sync/mindarc-cli/target/release/mindarc'
 
 # ignore Control-D behaviour
 set -o ignoreeof
@@ -244,3 +247,6 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PNPM_HOME="/home/teekm/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+#nvim-bob
+export PATH="$PATH:/home/teekm/.local/share/bob/nvim-bin "

@@ -16,7 +16,7 @@ window:
     x: 4
     y: 4
   dynamic_padding: true
-  opacity: 0.85
+  opacity: 0.90
 
 # Good themes
 # ShadesOfPurple, panda
@@ -66,32 +66,32 @@ scrolling:
   history: 10000
   multiplier: 5
 
-# key_bindings:
-  # - { key: V, mods: Control, action: Paste }
-  # - {
-  #     key: H,
-  #     mods: Control,
-  #     chars: "\e[D",
-  #     mode: ~AppCursor
-  #   }
-  # - {
-  #     key: L,
-  #     mods: Control,
-  #     chars: "\eOC",
-  #     mode: ~AppCursor
-  #   }
-  # - {
-  #     key: J,
-  #     mods: Control,
-  #     chars: "\e[B",
-  #     mode: ~AppCursor
-  #   }
-  # - {
-  #     key: K,
-  #     mods: Control,
-  #     chars: "\e[A",
-  #     mode: ~AppCursor
-  #   }
+key_bindings:
+  - { key: V, mods: Control, action: Paste }
+  - {
+      key: H,
+      mods: Control,
+      chars: "\e[D",
+      mode: ~AppCursor
+    }
+  - {
+      key: L,
+      mods: Control,
+      chars: "\eOC",
+      mode: ~AppCursor
+    }
+  - {
+      key: J,
+      mods: Control,
+      chars: "\e[B",
+      mode: ~AppCursor
+    }
+  - {
+      key: K,
+      mods: Control,
+      chars: "\e[A",
+      mode: ~AppCursor
+    }
   # Key bindings
   #
   # Key bindings are specified as a list of objects. For example, this is the

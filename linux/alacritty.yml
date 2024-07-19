@@ -5,6 +5,7 @@ shell:
   args:
     - -l
     - -c
+    - -u
     - "tmux"
 
 cursor:

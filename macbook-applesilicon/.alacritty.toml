@@ -1,0 +1,59 @@
+import = ["/Users/teekm/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+
+[cursor.style]
+shape = "Beam"
+
+[env]
+TERM = "tmux-256color"
+
+[font]
+size = 16
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 1
+
+[shell]
+args = ["-l", "-c", "tmux"]
+program = "/bin/zsh"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+opacity = 0.9
+
+[window.padding]
+x = 4
+y = 4
+
+[[keyboard.bindings]]
+key = "H"
+mods = "Control"
+chars = "\u001b[D"
+
+[[keyboard.bindings]]
+key = "J"
+mods = "Control"
+chars = "\u001b[B"
+
+[[keyboard.bindings]]
+key = "K"
+mods = "Control"
+chars = "\u001b[A"
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Control"
+chars = "\u001b[C"

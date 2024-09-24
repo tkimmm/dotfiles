@@ -221,6 +221,11 @@ du() {
 	sudo systemctl enable docker.service docker.socket
 }
 
+ct() {
+  cd ~/Sync/catcounter
+  python bounding.py
+}
+
 gas() {
   echo "AWS Secret Name:"
   read secret

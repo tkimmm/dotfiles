@@ -2,21 +2,14 @@
 " syntax on
 syntax enable
 set re=0
+set number          " Show line numbers
+set relativenumber  " Show relative line numbers
+:imap jk <Esc>
 
 " various settings
-set autoindent                 " Minimal automatic indenting for any filetype.
 set backspace=indent,eol,start " Proper backspace behavior.
 set hidden                     " Possibility to have more than one unsaved buffers.
 set incsearch                  " Incremental search, hit `<CR>` to stop.
 set ruler                      " Shows the current line number at the bottom-right
                                " of the screen.
 set wildmenu                   " Great command-line completion, use `<Tab>` to move
-                               " around and `<CR>` to validate.
-
-:imap jk <Esc>
-
-" Cursor mode customisations
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"

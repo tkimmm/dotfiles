@@ -120,6 +120,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # Kubernetes
 source <(kubectl completion zsh)
 
+alias ma='/home/teekm/Sync/go/mindarc-aws/mindarcaws-linux'
 alias ks=k9s
 alias k=kubectl
 alias q=exit

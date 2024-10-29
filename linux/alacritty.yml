@@ -28,8 +28,8 @@ font:
     y: 0
   normal:
     # family: "SauceCodePro NFM"
-    family: "FiraCode Nerd Font"
-    # family: "JetBrains Mono NFM"
+    # family: "FiraCode Nerd Font"
+    family: "JetBrains Mono NF"
     # family: "Anonymice NFM"
     # family: "Roboto Mono NFM"
     # family: "OpenDyslexic NFM"
@@ -43,9 +43,9 @@ font:
     style: Regular
 
   bold:
-    family: "FiraCode Nerd Font"
+    # family: "FiraCode Nerd Font"
     # family: "SauceCodePro NFM"
-    # family: "JetBrains Mono NFM"
+    family: "JetBrains Mono NF"
     # family: "FantasqueSansMono NFM"
     # family: "SpaceMono NFM"
     # family: "Anonymice NFM"
@@ -53,9 +53,9 @@ font:
     style: Bold
 
   italic:
-    family: "FiraCode Nerd Font"
+    # family: "FiraCode Nerd Font"
     # family: "SauceCodePro NFM"
-    # family: "JetBrains Mono NFM"
+    family: "JetBrains Mono NF"
     # family: "SpaceMono NFM"
     # family: "Anonymice NFM"
     # family: "Roboto Mono NFM"
@@ -435,10 +435,10 @@ key_bindings:
 # theme: sonokai
 #
 import:
-  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 # andromeda
 
 # colors:

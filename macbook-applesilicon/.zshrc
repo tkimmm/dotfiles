@@ -148,3 +148,4 @@ eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
 
 eval "$(zoxide init zsh)"
+alias cd=z

@@ -1,4 +1,4 @@
-import = ["/Users/teekm/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+import = ["/Users/teekm/.config/alacritty/catppuccin/catppuccin-macchiato.toml"]
 
 [cursor.style]
 shape = "Beam"
@@ -10,15 +10,15 @@ TERM = "tmux-256color"
 size = 16
 
 [font.bold]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.offset]
@@ -35,8 +35,8 @@ dynamic_padding = true
 opacity = 0.9
 
 [window.padding]
-x = 4
-y = 4
+x = 1
+y = 0
 
 [[keyboard.bindings]]
 key = "H"

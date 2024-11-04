@@ -7,7 +7,7 @@ shape = "Beam"
 TERM = "tmux-256color"
 
 [font]
-size = 16
+size = 14.5
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"

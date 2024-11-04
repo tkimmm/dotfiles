@@ -1,0 +1,117 @@
+# Disablw window opening animation
+# defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# brew tap FelixKratz/formulae
+# brew install borders
+#
+after-startup-command = [
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=1.0'
+]
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[mode.main.binding]
+# See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
+# alt-enter = '''exec-and-forget osascript -e '
+# tell application "alacritty"
+#     do script
+#     activate
+# end tell'
+# '''
+
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
+cmd-j = 'workspace next'
+cmd-k = 'workspace prev'
+
+# i3 wraps focus by default
+alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
+alt-j =         'focus --boundaries-action wrap-around-the-workspace down'
+alt-k =         'focus --boundaries-action wrap-around-the-workspace up'
+alt-l =         'focus --boundaries-action wrap-around-the-workspace right'
+
+# Consider using 'join-with' command as a 'split' replacement if you want to enable normalizations
+# alt-o = 'join-with up'
+# alt-v = 'join-with vertical'
+
+alt-f = 'fullscreen'
+alt-tab = 'workspace-back-and-forth'
+
+# alt-s = 'layout v_accordion' # 'layout stacking' in i3
+# alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+
+alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+
+# Not supported, because this command is redundant in AeroSpace mental model.
+# See: https://nikitabobko.github.io/AeroSpace/guide#floating-windows
+#alt-space = 'focus toggle_tiling_floating'
+
+# `focus parent`/`focus child` are not yet supported, and it's not clear whether they
+# should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
+# alt-a = 'focus parent'
+
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
+
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
+cmd-shift-j = ['move-node-to-workspace next', 'workspace next']
+cmd-shift-k = ['move-node-to-workspace prev', 'workspace prev']
+
+alt-shift-c = 'reload-config'
+
+alt-r = 'mode resize'
+alt-enter = 'mode service'
+
+[mode.service.binding]
+r = ['reload-config', 'mode main']
+h = 'move left'
+j = 'move down'
+k = 'move up'
+l = 'move right'
+esc = 'mode main'
+enter = 'mode main'
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
+
+[gaps]
+inner.horizontal = 15
+inner.vertical =   15
+outer.left =       15
+outer.bottom =     15
+outer.top =        15
+outer.right =      15
+
+[[on-window-detected]]
+if.app-id = 'org.alacritty'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 3'

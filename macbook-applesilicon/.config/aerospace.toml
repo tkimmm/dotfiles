@@ -1,19 +1,42 @@
 # Disablw window opening animatio# Start AeroSpace at login
 start-at-login = true
+# after-login-command = []
+
+#brew tap FelixKratz/formulae
+#brew install borders
+
+after-startup-command = [
+  'exec-and-forget sketchybar',
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=2.0',
+  'exec-and-forget /bin/bash -c /Users/teekm/.config/aerospace/gap.sh'
+]
+
+exec-on-workspace-change = [
+  '/bin/bash', 
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+on-focus-changed = [
+  'exec-and-forget sketchybar --trigger front_app_switched'
+]
 
 # defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-# brew tap FelixKratz/formulae
-# brew install borders
-#
-after-startup-command = [
-  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=2'
-]
-
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = ['^built-in retina display$', 'main']
+4 = ['^built-in retina display$', 'main']
+5 = 'main'
+6 = 'main'
+7 = 'main'
+8 = ['^built-in retina display$', 'main']
 
 [mode.main.binding]
 # See: https://nikitabobko.github.io/AeroSpace/goodness#open-a-new-window-with-applescript
@@ -29,8 +52,8 @@ cmd-alt-h = [] # Disable "hide others"
 ctrl-1 = []
 ctrl-2 = []
 
-cmd-j = 'workspace next'
-cmd-k = 'workspace prev'
+cmd-j = 'workspace next --wrap-around'
+cmd-k = 'workspace prev --wrap-around'
 
 # i3 wraps focus by default
 alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
@@ -43,7 +66,7 @@ alt-l =         'focus --boundaries-action wrap-around-the-workspace right'
 # alt-v = 'join-with vertical'
 
 alt-f = 'fullscreen'
-alt-tab = 'workspace-back-and-forth'
+# alt-tab = 'workspace-back-and-forth'
 
 # alt-s = 'layout v_accordion' # 'layout stacking' in i3
 # alt-w = 'layout h_accordion' # 'layout tabbed' in i3
@@ -67,8 +90,8 @@ cmd-5 = 'workspace 5'
 cmd-6 = 'workspace 6'
 cmd-7 = 'workspace 7'
 cmd-8 = 'workspace 8'
-cmd-9 = 'workspace 9'
-cmd-0 = 'workspace 10'
+# cmd-9 = 'workspace 9'
+# cmd-0 = 'workspace 10'
 
 cmd-shift-1 = 'move-node-to-workspace 1'
 cmd-shift-2 = 'move-node-to-workspace 2'
@@ -78,10 +101,10 @@ cmd-shift-3 = 'move-node-to-workspace 3'
 cmd-shift-6 = 'move-node-to-workspace 6'
 cmd-shift-7 = 'move-node-to-workspace 7'
 cmd-shift-8 = 'move-node-to-workspace 8'
-cmd-shift-9 = 'move-node-to-workspace 9'
-cmd-shift-0 = 'move-node-to-workspace 10'
-cmd-shift-j = ['move-node-to-workspace next', 'workspace next']
-cmd-shift-k = ['move-node-to-workspace prev', 'workspace prev']
+# cmd-shift-9 = 'move-node-to-workspace 9'
+# cmd-shift-0 = 'move-node-to-workspace 10'
+cmd-shift-j = ['move-node-to-workspace next --focus-follows-window']
+cmd-shift-k = ['move-node-to-workspace prev --focus-follows-window']
 
 alt-shift-c = 'reload-config'
 
@@ -89,7 +112,14 @@ alt-r = 'mode resize'
 cmd-enter = 'mode service'
 
 [mode.service.binding]
-r = ['reload-config', 'mode main']
+r = [
+  'reload-config', 
+  'mode main', 
+  'exec-and-forget sketchybar --reload',
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=2.0',
+  'exec-and-forget /bin/bash -c /Users/teekm/.config/aerospace/gap.sh',
+  'exec-and-forget sleep 0.5 && sketchybar --trigger send_message MESSAGE="Aerospace Reloaded"',
+]
 h = 'move left'
 j = 'move down'
 k = 'move up'
@@ -99,7 +129,7 @@ enter = 'mode main'
 f = [
     'layout floating tiling',
     'mode main',
-] # Toggle between floating and tiling layout
+]
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -114,7 +144,7 @@ inner.horizontal = 10
 inner.vertical =   10
 outer.left =       10
 outer.bottom =     10
-outer.top =        10
+outer.top = 10
 outer.right =      10
 
 [[on-window-detected]]
@@ -124,3 +154,21 @@ run = 'move-node-to-workspace 1'
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefoxdeveloperedition'
+check-further-callbacks = true
+if.window-title-regex-substring = 'picture-in-picture'
+run = ['layout floating']

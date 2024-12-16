@@ -1,4 +1,4 @@
-import = ["/Users/teekm/.config/alacritty/catppuccin/catppuccin-macchiato.toml"]
+general.import = ["/Users/teekm/.config/alacritty/catppuccin/catppuccin-macchiato.toml"]
 
 [cursor.style]
 shape = "Beam"
@@ -25,14 +25,14 @@ style = "Regular"
 x = 1
 y = 1
 
-[shell]
+[terminal.shell]
 args = ["-l", "-c", "tmux"]
 program = "/bin/zsh"
 
 [window]
 decorations = "buttonless"
 dynamic_padding = true
-opacity = 0.8
+opacity = 0.95
 
 [window.padding]
 x = 3

@@ -271,3 +271,6 @@ function nvims() {
   fi
   NVIM_APPNAME=$config nvim $@
 }
+
+eval "$(zoxide init zsh)"
+alias cd=z

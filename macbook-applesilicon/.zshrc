@@ -38,7 +38,7 @@ alias syncoff="brew services stop syncthing"
 alias syncon="brew services start syncthing"
 alias or='git remote -v | grep origin | grep -o "github.com[:/][^ ]*" | sed "s/.*github.com[\/\:]//" | xargs -I {} open https://github.com/{} > /dev/null 2>&1 &'
 alias sfm='echo "Enter user@server: " && read server && echo "Enter remote mount point: " && read remote_path && sshfs -o reconnect -o ServerAliveInterval=15 -o ServerAliveCountMax=3 "$server":"$remote_path" ~/mountpoint'
-alias sfu='unmount -f ~/mountpoint'
+alias sfu='umount -f ~/mountpoint'
 
 # ignore Control-D behaviour
 set -o ignoreeof

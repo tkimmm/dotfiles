@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      #./hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -86,6 +86,10 @@
     isNormalUser = true;
     description = "teekm";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
+    openssh.authorizedKeys.keys = [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDkCNxo8K+QfdCjwk94WZstUq6YAo44d/InDuTv13Svm3hYzXus1B9N6v8Sx+6watvHpELfp3FC+gRnt3CWhvnXhoMHsK40MATPvDRuWgyNSsfXd3gqj8N7Z86pncCSzMsahNzM2j8eO8DCaLxjvXs3jD3Fb4H0VmvuxXV9LfvhHCnooOLRXYrNaqaKpuxmbrYFHiqGN3zVWzmnULrL6CMHtlcd3XtmZd/JUA4DhANOHXZpc3l7GTYWSoBXtCW4uGXvQ4/RTBUo6zUFz1fDBZahRtW1CqnMRLztIX1lkktVlBsSiI12zsGyaWBYDIG5CilQvJQ5YIGr27RTr0RLBFS4HO5w4hBdt3SY6ToL88dBF+9OIOsJXnlKiTU8wU/SmGElMXd/fGn2CpwS+MIhZmVqN+x3vBXlLqrqPg7x/1RC9np/H8EyVxVKt3pwLMweni7ceQ6z/3q0NQ3dPwAaa/CzQ5AD7l57oXwm95r1F4BjIUDNCKrps0sql1NtufT5ip/Y7QFXbHUlfys+/fNPcLc/TjFERgKc5tAJEEk+/iGVQL8hkIbNEXMRiLq2mCWMExeJ8TjjDqG3qEaz4bHiU3tnCQOiNSxn3RTz9Zo2yhbKdsFc0R92U6l17pC4tCKcaClu9etwHRkifzCNAlqYNM3+kZonMDQE+cbFOlAySFAbWQ== m2-macbookpro
+"
+    ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -126,7 +130,15 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      X11Forwarding = true;
+      PermitRootLogin = "no"; # disable root login
+      PasswordAuthentication = false; # disable password login
+    };
+    openFirewall = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

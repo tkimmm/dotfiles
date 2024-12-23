@@ -32,7 +32,6 @@ alias gg='lazygit'
 alias n='cd /Users/teekm/Sync/vim/ && nvim'
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias m="cd /Users/teekm/Sync/Dev/Python/modelemp && python3 app.py"
-alias mm='curl -L "https://slack.tkim.io/slack/toggle?id=AlsIchInAsicsWar727"'
 alias tf="terraform"
 alias syncoff="brew services stop syncthing"
 alias syncon="brew services start syncthing"

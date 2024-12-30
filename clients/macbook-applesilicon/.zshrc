@@ -1,37 +1,49 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
- source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+# p10k zsh
 # Path to your oh-my-zsh installation.
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# zsh plugins
 export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(git fzf-tab fzf vi-mode zsh-autosuggestions)
-
 source $ZSH/oh-my-zsh.sh
-source /opt/homebrew/Cellar/fzf/0.55.0/shell/key-bindings.zsh
+plugins=(git fzf-tab fzf vi-mode zsh-autosuggestions)
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# fzf ctrl-r search & auto complete
+source $(brew --prefix)/Cellar/fzf/$(fzf --version | cut -d ' ' -f 1)/shell/key-bindings.zsh
+source $(brew --prefix)/Cellar/fzf/$(fzf --version | cut -d ' ' -f 1)/shell/completion.zsh
+
+# brew
+version=$(echo /opt/homebrew/Cellar/fzf/* | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+source /opt/homebrew/Cellar/fzf/${version}/shell/key-bindings.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh) 
 
 # Kubernetes
 source <(kubectl completion zsh)
 
 # Misc bindings
+# wget -qO- https://raw.githubusercontent.com/tkimmm/dotfiles/refs/heads/main/servers/install.sh | sh
 alias mindarc='/Users/teekm/Sync/mindarc-cli/target/release/mindarc'
 alias ma='/Users/teekm/Sync/go/mindarc-aws/mindarcaws-darwin'
 alias ks=k9s
+alias g1='/Users/teekm/.config/aerospace/gap.sh'
 alias k=kubectl
 alias q=exit
 alias v='nvim'
 alias c='clear'
-alias gg='lazygit'
-alias n='cd /Users/teekm/Sync/vim/ && nvim'
+alias gi='lazygit'
+alias n='cd /Users/teekm/Dev/2025/vim && nvim'
 alias gitp="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
-alias m="cd /Users/teekm/Sync/Dev/Python/modelemp && python3 app.py"
+alias m="cd /Users/teekm/DevSync/Dev/Python/modelemp && python3 app.py"
+alias mm='curl -L "https://slack.tkim.io/slack/toggle?id=AlsIchInAsicsWar727"'
 alias tf="terraform"
 alias syncoff="brew services stop syncthing"
 alias syncon="brew services start syncthing"
@@ -69,6 +81,7 @@ function zle-keymap-select {
 }
 
 zle -N zle-keymap-select
+
 # Start with beam shape cursor on zsh startup and after every command.
 zle-line-init() { zle-keymap-select 'beam'}
 
@@ -85,32 +98,11 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 70% --reverse' 
 fi
 
+# fzf search helper
 f() {
   local dir
-  DIR=$(find ~/Sync -maxdepth 8 -type d \( -name .git -o -name node_modules -o -name release -o -name QubozDownloader \) -prune -o -type d -print 2> /dev/null | fzf-tmux) \
+  DIR=$(find ~/Dev -maxdepth 8 -type d \( -name .git -o -name node_modules -o -name release -o -name QubozDownloader \) -prune -o -type d -print 2> /dev/null | fzf-tmux) \
     && cd "$DIR"
-}
-
-fu() {
-  local declare dirs=()
-  get_parent_dirs() {
-    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
-    if [[ "${1}" == '/' ]]; then
-      for _dir in "${dirs[@]}"; do echo $_dir; done
-    else
-      get_parent_dirs $(dirname "$1")
-    fi
-  }
-  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
-  cd "$DIR"
-}
-
-dd() {
-	sudo systemctl disable docker.service docker.socket
-}
-
-du() {
-	sudo systemctl enable docker.service docker.socket
 }
 
 gas() {
@@ -119,13 +111,6 @@ gas() {
   aws secretsmanager get-secret-value --secret-id ${secret} | jq -r '.SecretString' | jq .
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh) 
-
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -142,11 +127,29 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PNPM_HOME="/home/teekm/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
+# go
+export GOBIN=$GOPATH/bin
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
+# wtf
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
 
+# starship
+export STARSHIP_CONFIG=~/dotfiles/clients/macbook-applesilicon/starship.toml
+eval "$(starship init zsh)"
+
+# zoxide
 eval "$(zoxide init zsh)"
 alias cd=z
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

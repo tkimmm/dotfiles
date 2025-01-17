@@ -1,0 +1,9 @@
+#command = tmux
+cursor-color = white
+window-padding-x = 10
+window-padding-y = 10
+theme = rose-pine-moon
+window-decoration = false
+macos-titlebar-style = hidden
+font-size = 14.5
+background-opacity = 0.95

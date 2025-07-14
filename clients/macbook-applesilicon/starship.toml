@@ -11,3 +11,11 @@ success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+[python]
+pyenv_version_name = true
+
+[aws]
+format = 'on [$symbol$profile]($style) '
+[aws.profile_aliases]
+Enterprise_Naming_Scheme-voidstars = 'void**'

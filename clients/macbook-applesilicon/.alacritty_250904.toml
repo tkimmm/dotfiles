@@ -4,7 +4,7 @@ TERM = "xterm-256color"
 
 [font]
 # size = 14.5 # Regular
-size = 17 # HDR
+size = 16 # HDR
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"

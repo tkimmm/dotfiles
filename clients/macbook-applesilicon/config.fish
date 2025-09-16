@@ -3,7 +3,8 @@ set fish_cursor_default line
 set fish_cursor_insert line
 set fish_cursor_visual block
 set fish_cursor_replace underscore
-set fish_vi_force_cursor 1
+set -gx EDITOR nvim
+set -gx VISUAL nvimet fish_vi_force_cursor 1
 
 # Aliases can stay outside
 # Use fish_config for interactive fish configuration
@@ -14,13 +15,25 @@ alias v='nvim'
 alias c='clear'
 alias gg='lazygit'
 alias n='cd /Users/teekm/Dev/2025/vim; nvim'
-alias y='yazi'
 alias cd='z'
+
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
 
 function awsupdate
     set -l myip (dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d '"')
     set -l timestamp (date '+%Y-%m-%d %H:%M:%S')
     aws ec2 modify-security-group-rules --group-id sg-0053cf18fac32bdbb --security-group-rules "SecurityGroupRuleId=sgr-0f36539805d442cb3,SecurityGroupRule={IpProtocol=tcp,FromPort=22,ToPort=22,CidrIpv4=$myip/32,Description='Tom Kim, updated at $timestamp'}"
+end
+
+function repo
+    git remote -v | grep origin | head -1 | grep -o "github.com[:/][^ ]*" | sed "s/.*github.com[\/\:]//" | xargs -I {} open https://github.com/{}
 end
 
 # Interactive-only stuff
@@ -40,3 +53,5 @@ if status is-interactive
     zoxide init fish | source
     starship init fish | source
 end
+
+pyenv init - fish | source

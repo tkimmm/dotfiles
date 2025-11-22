@@ -16,6 +16,7 @@ alias c='clear'
 alias gg='lazygit'
 alias n='cd /Users/teekm/Dev/2025/vim; nvim'
 alias cd='z'
+alias ka='pkill -f AeroSpace'
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")

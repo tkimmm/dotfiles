@@ -1,0 +1,34 @@
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "9c37d37"
+hash = ""
+
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "c82794f"
+hash = ""
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-paste"
+rev = "b886025"
+hash = "a8050052e59f3952abe0b3e27a5843de"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "b886025"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "b886025"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "91fdfa7"
+hash = ""
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "3e6da98"
+hash = "1e2cc3f0f96197f3dac9591be50bb2af"
